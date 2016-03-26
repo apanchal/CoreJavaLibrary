@@ -1,0 +1,5 @@
+projectKey=com.inclever.library:Infrastructure
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/com.inclever.library:Infrastructure
+ceTaskId=AVKNZ7rmGs7yRcHl8WCh
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVKNZ7rmGs7yRcHl8WCh

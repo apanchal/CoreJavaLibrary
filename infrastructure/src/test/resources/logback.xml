@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<property resource="corelibrarylogging.properties" />
+
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%msg%n</Pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${CORE_LOG_DIR}/corelibrary.log</file>
+		<append>true</append>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>[%d] [%-6p] [%c:%L] - %m%n</Pattern>
+		</encoder>
+	</appender>
+
+	<appender name="TRANSACTION_FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${CORE_LOG_DIR}/transaction_log.html</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<!-- daily rollover -->
+			<fileNamePattern>${CORE_LOG_DIR}\transaction_log.%d{yyyy-MM-dd}.%i.html
+			</fileNamePattern>
+			<timeBasedFileNamingAndTriggeringPolicy
+				class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+				<!-- or whenever the file size reaches 100MB -->
+				<maxFileSize>50MB</maxFileSize>
+			</timeBasedFileNamingAndTriggeringPolicy>
+			<!-- keep 30 days' worth of history -->
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<append>true</append>
+		<encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<charset>UTF-8</charset>
+			<layout class="ch.qos.logback.classic.html.HTMLLayout">
+				<!-- pattern>%d{HH:mm:ss.SSS}%thread%level%logger%line%msg</pattern -->
+				<pattern>%d%-6p%c%L%m%n</pattern>
+			</layout>
+		</encoder>
+		<!-- <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder"> 
+			<Pattern>[%d] [%-6p] [%c:%L] - %m%n</Pattern> </encoder> -->
+	</appender>
+
+
+	<!-- For logging JPQL and generated SQL -->
+	<appender name="JPA_SQL_FILE" class="ch.qos.logback.core.FileAppender">
+		<file>${CORE_LOG_DIR}/queries.log</file>
+		<append>true</append>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>[%d] [%-6p] [%c:%L] - %m%n</Pattern>
+		</encoder>
+		<!-- filter class="ch.qos.logback.core.filter.EvaluatorFilter"> <evaluator> 
+			<expression> return message.toLowerCase().contains("org.hibernate.type") 
+			&amp;&amp; logger.startsWith("returning"); </expression> </evaluator> <OnMismatch>NEUTRAL</OnMismatch> 
+			<OnMatch>DENY</OnMatch> </filter> -->
+	</appender>
+
+	<logger name="com.inclever.library" additivity="false" level="debug">
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<!-- DAOBlend logging -->
+	<logger name="com.inclever.library.daoblend.core.dao.profiler"
+		additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<logger name="com.inclever.library.daoblend.core.dao"
+		additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<logger name="com.inclever.library.daoblend.core.service"
+		additivity="false" level="debug">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<!-- DAOBlend exception logging -->
+	<logger name="com.inclever.library.daoblend.exception"
+		additivity="false" level="error">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+
+	<logger name="org.springframework.orm" additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<logger name="org.springframework.transaction.interceptor"
+		additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+	<logger name="org.springframework.transaction.support"
+		additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<!-- Spring AOP Debugging -->
+	<!-- <logger name="org.springframework.aop.aspectj.annotation" additivity="false" 
+		level="trace"> <appender-ref ref="TRANSACTION_FILE" /> </logger> -->
+
+	<!-- Logs generated SQL queries -->
+	<logger name="org.hibernate.SQL" additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<!-- Logs SQL statements for id generation -->
+	<logger name="org.hibernate.id" additivity="false" level="trace">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+	<!-- Logs the JDBC-Parameter which are passed to a query (very verboose) -->
+	<!-- logger name="org.hibernate.type" additivity="false" level="trace"> 
+		<appender-ref ref="TRANSACTION_FILE" /> </logger -->
+
+	<!-- Logs cache related activities -->
+	<logger name="org.hibernate.cache" additivity="false" level="debug">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+
+	<logger name="org.hibernate.ejb" additivity="false" level="debug">
+		<appender-ref ref="TRANSACTION_FILE" />
+	</logger>
+
+</configuration>

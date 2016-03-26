@@ -1,0 +1,5 @@
+projectKey=com.inclever.library:Common-Utility
+serverUrl=http://localhost:9000
+dashboardUrl=http://localhost:9000/dashboard/index/com.inclever.library:Common-Utility
+ceTaskId=AVKMJbQcGs7yRcHl8V5O
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AVKMJbQcGs7yRcHl8V5O
