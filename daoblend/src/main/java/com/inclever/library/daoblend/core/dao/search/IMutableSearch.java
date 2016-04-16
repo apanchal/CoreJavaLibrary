@@ -33,6 +33,5 @@ public interface IMutableSearch extends ISearch {
 
     IMutableSearch setResultMode(int resultMode);
 
-    IMutableSearch setConstructorExpressionClass(
-	    String constructorExpressionObjectName);
+    IMutableSearch setConstructorExpressionClass(String constructorExpressionObjectName);
 }

@@ -67,9 +67,8 @@ public interface IPersistentEntityDAO<MODEL extends IPersistable<IDENTIFIER>, ID
      * 
      * <p>
      * 
-     * Cascade types triggered by this operation:
-     * {@link CascadeType#SAVE_UPDATE save-update}, {@link CascadeType#MERGE
-     * merge}.
+     * Cascade types triggered by this operation: {@link CascadeType#SAVE_UPDATE
+     * save-update}, {@link CascadeType#MERGE merge}.
      * 
      * @param entity
      *            Transient or detached instance to save or update.
@@ -82,9 +81,8 @@ public interface IPersistentEntityDAO<MODEL extends IPersistable<IDENTIFIER>, ID
      * 
      * <p>
      * 
-     * Cascade types triggered by this operation:
-     * {@link CascadeType#SAVE_UPDATE save-update}, {@link CascadeType#MERGE
-     * merge}.
+     * Cascade types triggered by this operation: {@link CascadeType#SAVE_UPDATE
+     * save-update}, {@link CascadeType#MERGE merge}.
      * 
      * @param entity
      *            Transient or detached instance to save or update.
@@ -237,7 +235,7 @@ public interface IPersistentEntityDAO<MODEL extends IPersistable<IDENTIFIER>, ID
     @Transactional(propagation = Propagation.MANDATORY, isolation = Isolation.DEFAULT, readOnly = true, rollbackFor = Exception.class)
     List<MODEL> findAll();
 
-    // TODO:Define Search Methods with Exception
+
     // ==========================================================
     // ==================== SEARCH Methods ======================
     // ==========================================================
@@ -341,8 +339,7 @@ public interface IPersistentEntityDAO<MODEL extends IPersistable<IDENTIFIER>, ID
      */
     @SuppressWarnings("rawtypes")
     @Transactional(propagation = Propagation.MANDATORY, isolation = Isolation.DEFAULT, readOnly = true, rollbackFor = Exception.class)
-    <S extends PersistentEntity> List<S> searchByNativeQuery(
-	    String nativeQuery, Class<S> targetedEntityClass);
+    <S extends PersistentEntity> List<S> searchByNativeQuery(String nativeQuery, Class<S> targetedEntityClass);
 
     /**
      * 
@@ -351,7 +348,6 @@ public interface IPersistentEntityDAO<MODEL extends IPersistable<IDENTIFIER>, ID
      * @return
      */
     @Transactional(propagation = Propagation.MANDATORY, isolation = Isolation.DEFAULT, readOnly = true, rollbackFor = Exception.class)
-    public <T> List<T> searchByNativeQueryWithBean(NativeQuery nativeQuery,
-	    Class<T> beanClazz);
+    public <T> List<T> searchByNativeQueryWithBean(NativeQuery nativeQuery, Class<T> beanClazz);
 
 }

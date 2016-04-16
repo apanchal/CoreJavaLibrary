@@ -60,10 +60,9 @@ import com.inclever.library.logging.LogManagerFactory;
 @Scope(org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE)
 @ExceptionHandler(handler = DaoExceptionHandler.class)
 public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIER extends Serializable>
-	implements IPersistentEntityDAO<MODEL, IDENTIFIER> {
+        implements IPersistentEntityDAO<MODEL, IDENTIFIER> {
 
-    private static final Logger LOGGER = LogManagerFactory.getInstance()
-	    .getLogger(GenericJPADAOImpl.class);
+    private static final Logger LOGGER = LogManagerFactory.getInstance().getLogger(GenericJPADAOImpl.class);
 
     private static final String NO_ENTITY_CLASS = "No Entity Class Found!!";
 
@@ -78,23 +77,22 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
     private JPASearchProcessor jpaSearchProcessor;
 
     public GenericJPADAOImpl() {
-	//
-	// this.entityClass = (Class<MODEL>) DaoUtil.getTypeArguments(
-	// CoreServiceImpl.class, CoreServiceImpl.class).get(0);
+        //
+        // this.entityClass = (Class<MODEL>) DaoUtil.getTypeArguments(
+        // CoreServiceImpl.class, CoreServiceImpl.class).get(0);
 
-	jpaSearchProcessor = new JPASearchProcessor(
-		new JPAAnnotationMetadataUtil());
+        jpaSearchProcessor = new JPASearchProcessor(new JPAAnnotationMetadataUtil());
     }
 
     public void setEntityManager(EntityManager entityManager) {
-	this.entityManager = entityManager;
+        this.entityManager = entityManager;
     }
 
     /**
      * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#setEntityClass()
      */
     public void setEntityClass(Class<MODEL> entityClazz) {
-	this.entityClass = entityClazz;
+        this.entityClass = entityClazz;
     }
 
     /**
@@ -102,7 +100,7 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final Class<MODEL> getEntityClass() {
-	return entityClass;
+        return entityClass;
     }
 
     // =========================================================================
@@ -114,21 +112,20 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final <S extends MODEL> void persist(S entity) {
-	LOGGER.trace("Persisting entity {}", entity);
-	if (entity == null) {
-	    throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
-	}
-	try {
-	    entityManager.persist(entity);
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.cannotSaveEntity(getEntityClassName(),
-		    rootCause.getMessage(), exception);
+        LOGGER.trace("Persisting entity {}", entity);
+        if (entity == null) {
+            throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
+        }
+        try {
+            entityManager.persist(entity);
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.cannotSaveEntity(getEntityClassName(), rootCause.getMessage(), exception);
 
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
     }
 
@@ -138,49 +135,47 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
     @SuppressWarnings("unchecked")
     @Override
     public final <S extends MODEL> S merge(S entity) {
-	LOGGER.trace("Merging entity {}", entity);
-	if (entity == null) {
-	    throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
-	}
-	try {
-	    return entityManager.merge(entity);
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.cannotUpdateEntity(getEntityClassName(),
-		    String.valueOf(((PersistentEntity<S>) entity).getId()),
-		    rootCause.getMessage(), exception);
+        LOGGER.trace("Merging entity {}", entity);
+        if (entity == null) {
+            throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
+        }
+        try {
+            return entityManager.merge(entity);
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.cannotUpdateEntity(getEntityClassName(),
+                    String.valueOf(((PersistentEntity<S>) entity).getId()), rootCause.getMessage(), exception);
 
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
     }
 
     /**
      * @
      * 
-     * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#refresh(IPersistable)
+     *   @see
+     *   com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#refresh(IPersistable)
      */
     @SuppressWarnings("unchecked")
     @Override
     public final void refresh(MODEL entity) {
-	LOGGER.trace("Refreshing entity {}", entity);
-	if (entity == null) {
-	    throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
-	}
-	try {
-	    entityManager.refresh(entity);
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.entityRefreshException(
-		    getEntityClassName(),
-		    String.valueOf(((PersistentEntity<MODEL>) entity).getId()),
-		    rootCause.getMessage(), exception);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        LOGGER.trace("Refreshing entity {}", entity);
+        if (entity == null) {
+            throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
+        }
+        try {
+            entityManager.refresh(entity);
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.entityRefreshException(getEntityClassName(),
+                    String.valueOf(((PersistentEntity<MODEL>) entity).getId()), rootCause.getMessage(), exception);
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
     }
 
@@ -190,75 +185,76 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
     @SuppressWarnings("unchecked")
     @Override
     public final void remove(MODEL entity) {
-	if (entity == null) {
-	    throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
-	}
-	LOGGER.trace("Removing entity {}", entity.getId());
-	try {
-	    IPersistable<MODEL> a = entityManager.getReference(
-		    entity.getClass(), entity.getId());
-	    LOGGER.trace("Reference is {}", a.getId());
-	    entityManager.remove(a);
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.cannotDeleteEntity(getEntityClassName(),
-		    String.valueOf(((PersistentEntity<MODEL>) entity).getId()),
-		    rootCause.getMessage(), exception);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        if (entity == null) {
+            throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
+        }
+        LOGGER.trace("Removing entity {}", entity.getId());
+        try {
+            IPersistable<MODEL> a = entityManager.getReference(entity.getClass(), entity.getId());
+            LOGGER.trace("Reference is {}", a.getId());
+            entityManager.remove(a);
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.cannotDeleteEntity(getEntityClassName(),
+                    String.valueOf(((PersistentEntity<MODEL>) entity).getId()), rootCause.getMessage(), exception);
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
     }
 
     /**
      * @
      * 
-     * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#remove(Serializable,
-     *      Class)
+     *   @see
+     *   com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#remove(Serializable,
+     *   Class)
      */
     @Override
-    public final <S extends MODEL> void remove(IDENTIFIER id,
-	    Class<S> targetedEntity) {
-	remove(find(id, targetedEntity));
+    public final <S extends MODEL> void remove(IDENTIFIER id, Class<S> targetedEntity) {
+        remove(find(id, targetedEntity));
     }
 
     /**
      * @
      * 
-     * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#remove(Serializable)
+     *   @see
+     *   com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#remove(Serializable)
      */
     @Override
     public final void remove(IDENTIFIER id) {
-	remove(id, entityClass);
+        remove(id, entityClass);
     }
 
     /**
      * @
      * 
-     * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#removeAll(Class)
+     *   @see
+     *   com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#removeAll(Class)
      */
     @Override
     public final <S extends MODEL> int removeAll(Class<S> targetedEntityClass) {
-	List<MODEL> instancesToRemove = findAll(targetedEntityClass);
-	int entityRemoved = -1;
-	if (instancesToRemove != null) {
-	    for (MODEL instance : instancesToRemove) {
-		remove(instance);
-	    }
-	    entityRemoved = instancesToRemove.size();
-	}
-	return entityRemoved;
+        List<MODEL> instancesToRemove = findAll(targetedEntityClass);
+        int entityRemoved = -1;
+        if (instancesToRemove != null) {
+            for (MODEL instance : instancesToRemove) {
+                remove(instance);
+            }
+            entityRemoved = instancesToRemove.size();
+        }
+        return entityRemoved;
     }
 
     /**
      * @
      * 
-     * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#removeAll()
+     *   @see
+     *   com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#removeAll()
      */
     @Override
     public final int removeAll() {
-	return removeAll(entityClass);
+        return removeAll(entityClass);
     }
 
     // =========================================================================
@@ -271,30 +267,27 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final <S extends MODEL> S find(IDENTIFIER id, Class<S> targetedEntity) {
-	LOGGER.trace("Finding Entity [{}] with Persistence Identifier [{}]",
-		targetedEntity, id);
-	if (targetedEntity == null) {
-	    throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
-	}
+        LOGGER.trace("Finding Entity [{}] with Persistence Identifier [{}]", targetedEntity, id);
+        if (targetedEntity == null) {
+            throw DaoRuntimeException.cannotPerformCRUDOnNullEntity();
+        }
 
-	if (id == null) {
-	    throw DaoRuntimeException.cannotFindEntity(
-		    targetedEntity.toString(), null, null);
-	}
-	S entityToBeFound = null;
+        if (id == null) {
+            throw DaoRuntimeException.cannotFindEntity(targetedEntity.toString(), null, null);
+        }
+        S entityToBeFound = null;
 
-	try {
-	    entityToBeFound = entityManager.find(targetedEntity, id);
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.cannotFindEntity(
-		    targetedEntity.toString(), String.valueOf(id), exception);
+        try {
+            entityToBeFound = entityManager.find(targetedEntity, id);
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwables.getRootCause(exception);
+            throw DaoRuntimeException.cannotFindEntity(targetedEntity.toString(), String.valueOf(id), exception);
 
-	} finally {
-	    closeEntityManager(entityManager);
-	}
-	return entityToBeFound;
+        } finally {
+            closeEntityManager(entityManager);
+        }
+        return entityToBeFound;
 
     }
 
@@ -303,7 +296,7 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final MODEL find(IDENTIFIER id) {
-	return find(id, entityClass);
+        return find(id, entityClass);
 
     }
 
@@ -312,29 +305,27 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @SuppressWarnings("unchecked")
     @Override
-    public final <S extends MODEL> List<MODEL> findAll(
-	    Class<S> targetedEntityClass) {
-	List<MODEL> models = null;
-	LOGGER.debug("Listing {} entities...", targetedEntityClass);
-	try {
-	    CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-	    @SuppressWarnings("rawtypes")
-	    CriteriaQuery c = cb.createQuery(targetedEntityClass);
-	    Root<MODEL> entity = c.from(targetedEntityClass);
-	    c.select(entity);
-	    TypedQuery<MODEL> query = entityManager.createQuery(c);
-	    LOGGER.debug("Executing Query...");
-	    models = query.getResultList();
-	    LOGGER.debug("Data : {} ", models);
-	    return models;
-	} catch (Exception exception) {
-	    HandlerUtil.handle(exception);
-	    Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.cannotFindEntities(getEntityClassName(),
-		    exception);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+    public final <S extends MODEL> List<MODEL> findAll(Class<S> targetedEntityClass) {
+        List<MODEL> models = null;
+        LOGGER.debug("Listing {} entities...", targetedEntityClass);
+        try {
+            CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+            @SuppressWarnings("rawtypes")
+            CriteriaQuery c = cb.createQuery(targetedEntityClass);
+            Root<MODEL> entity = c.from(targetedEntityClass);
+            c.select(entity);
+            TypedQuery<MODEL> query = entityManager.createQuery(c);
+            LOGGER.debug("Executing Query...");
+            models = query.getResultList();
+            LOGGER.debug("Data : {} ", models);
+            return models;
+        } catch (Exception exception) {
+            HandlerUtil.handle(exception);
+            Throwables.getRootCause(exception);
+            throw DaoRuntimeException.cannotFindEntities(getEntityClassName(), exception);
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
     }
 
@@ -343,7 +334,7 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final List<MODEL> findAll() {
-	return findAll(entityClass);
+        return findAll(entityClass);
 
     }
 
@@ -356,7 +347,7 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final <S extends MODEL> int countAll(Class<S> targetedEntity) {
-	throw DaoRuntimeException.UnSupportedFeatureError();
+        throw DaoRuntimeException.UnSupportedFeatureError();
 
     }
 
@@ -365,19 +356,19 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final int countAll() {
-	return countAll(entityClass);
+        return countAll(entityClass);
     }
 
     /**
      * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#count(ISearch)
      */
     public final int count(ISearch search) {
-	LOGGER.trace("Searching baed on serch {}", search);
-	try {
-	    return jpaSearchProcessor.count(entityManager, search);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        LOGGER.trace("Searching baed on serch {}", search);
+        try {
+            return jpaSearchProcessor.count(entityManager, search);
+        } finally {
+            closeEntityManager(entityManager);
+        }
     }
 
     /**
@@ -387,19 +378,18 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
     @SuppressWarnings("unchecked")
     @Override
     public final List<MODEL> search(ISearch search) {
-	List<MODEL> list = new ArrayList<MODEL>();
-	LOGGER.trace("Search Criteria {}", search);
-	try {
-	    list = jpaSearchProcessor.search(entityManager, search);
-	} catch (Exception exception) {
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.searchError(rootCause.getMessage(),
-		    exception);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
+        List<MODEL> list = new ArrayList<MODEL>();
+        LOGGER.trace("Search Criteria {}", search);
+        try {
+            list = jpaSearchProcessor.search(entityManager, search);
+        } catch (Exception exception) {
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.searchError(rootCause.getMessage(), exception);
+        } finally {
+            closeEntityManager(entityManager);
+        }
 
-	return list;
+        return list;
     }
 
     /**
@@ -408,18 +398,17 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
      */
     @Override
     public final SearchResult searchAndCount(ISearch search) {
-	SearchResult result = null;
-	LOGGER.trace("Searching baed on serch {}", search);
-	try {
-	    result = jpaSearchProcessor.searchAndCount(entityManager, search);
-	} catch (Exception exception) {
-	    Throwable rootCause = Throwables.getRootCause(exception);
-	    throw DaoRuntimeException.searchError(rootCause.getMessage(),
-		    exception);
-	} finally {
-	    closeEntityManager(entityManager);
-	}
-	return result;
+        SearchResult result = null;
+        LOGGER.trace("Searching baed on serch {}", search);
+        try {
+            result = jpaSearchProcessor.searchAndCount(entityManager, search);
+        } catch (Exception exception) {
+            Throwable rootCause = Throwables.getRootCause(exception);
+            throw DaoRuntimeException.searchError(rootCause.getMessage(), exception);
+        } finally {
+            closeEntityManager(entityManager);
+        }
+        return result;
     }
 
     /**
@@ -429,179 +418,157 @@ public class GenericJPADAOImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIE
     @SuppressWarnings({ "rawtypes" })
     @Override
     public final List search(NamedQuery namedQuery) {
-	Query query = getQuery(namedQuery);
-	LOGGER.trace("Checking for query parameters...");
-	if (!query.getParameters().isEmpty()) {
-	    Map<String, Object> queryParamMap = namedQuery.getQueryParamMap();
-	    if (queryParamMap == null || queryParamMap.isEmpty()) {
-		throw DaoRuntimeException.searchParameterMissingException(
-			namedQuery.getQueryName(),
-			namedQuery.getQueryParamMap());
-	    }
-	    for (String namedParam : queryParamMap.keySet()) {
-		if (!namedQuery.isNamedParam()) {
-		    query.setParameter(Integer.parseInt(namedParam),
-			    queryParamMap.get(namedParam));
-		} else {
-		    query.setParameter(namedParam,
-			    queryParamMap.get(namedParam));
-		}
-	    }
-	}
-	return query.getResultList();
+        Query query = getQuery(namedQuery);
+        LOGGER.trace("Checking for query parameters...");
+        if (!query.getParameters().isEmpty()) {
+            Map<String, Object> queryParamMap = namedQuery.getQueryParamMap();
+            if (queryParamMap == null || queryParamMap.isEmpty()) {
+                throw DaoRuntimeException.searchParameterMissingException(namedQuery.getQueryName(),
+                        namedQuery.getQueryParamMap());
+            }
+            for (String namedParam : queryParamMap.keySet()) {
+                if (!namedQuery.isNamedParam()) {
+                    query.setParameter(Integer.parseInt(namedParam), queryParamMap.get(namedParam));
+                } else {
+                    query.setParameter(namedParam, queryParamMap.get(namedParam));
+                }
+            }
+        }
+        return query.getResultList();
     }
 
     @SuppressWarnings("rawtypes")
     public List search(NativeQuery nativeQuery) {
-	Query query = getQuery(nativeQuery);
-	if (!query.getParameters().isEmpty()) {
-	    List<Object> queryParamList = nativeQuery.getQueryParamList();
-	    if (queryParamList == null || queryParamList.isEmpty()) {
-		throw DaoRuntimeException.searchParameterMissingException(
-			nativeQuery.getQueryString(),
-			nativeQuery.getQueryParamList());
-	    }
-	    int paramCount = 1;
-	    for (Object paramValue : queryParamList) {
-		query.setParameter(paramCount, paramValue);
-		paramCount++;
-	    }
-	}
-	return query.getResultList();
+        Query query = getQuery(nativeQuery);
+        if (!query.getParameters().isEmpty()) {
+            List<Object> queryParamList = nativeQuery.getQueryParamList();
+            if (queryParamList == null || queryParamList.isEmpty()) {
+                throw DaoRuntimeException.searchParameterMissingException(nativeQuery.getQueryString(),
+                        nativeQuery.getQueryParamList());
+            }
+            int paramCount = 1;
+            for (Object paramValue : queryParamList) {
+                query.setParameter(paramCount, paramValue);
+                paramCount++;
+            }
+        }
+        return query.getResultList();
     }
 
     /**
      * @see com.nividous.library.daoblend.core.dao.IPersistentEntityDAO#
-     *      searchByNativeQuery( String nativeQuery, Class<S>
-     *      targetedEntityClass)
+     *      searchByNativeQuery( String nativeQuery, Class
+     *      <S> targetedEntityClass)
      */
     @SuppressWarnings({ "unchecked", "rawtypes" })
     @Override
-    public final <S extends PersistentEntity> List<S> searchByNativeQuery(
-	    String nativeQuery, Class<S> targetedEntityClass) {
-	if (Strings.isNullOrEmpty(nativeQuery)) {
-	    throw DaoRuntimeException.searchError(nativeQuery, null);
-	}
-	return (List<S>) entityManager.createNativeQuery(nativeQuery,
-		targetedEntityClass).getResultList();
+    public final <S extends PersistentEntity> List<S> searchByNativeQuery(String nativeQuery,
+            Class<S> targetedEntityClass) {
+        if (Strings.isNullOrEmpty(nativeQuery)) {
+            throw DaoRuntimeException.searchError(nativeQuery, null);
+        }
+        return (List<S>) entityManager.createNativeQuery(nativeQuery, targetedEntityClass).getResultList();
 
     }
 
     @Override
-    public <T> List<T> searchByNativeQueryWithBean(NativeQuery nativeQuery,
-	    Class<T> beanClazz) {
-	List<T> result = new ArrayList<T>();
-	Query query = getQuery(nativeQuery);
-	if (query != null) {
-	    // Get Constructor object of Passed Bean
-	    Constructor<?> beanClassConstructor = (Constructor<?>) beanClazz
-		    .getDeclaredConstructors()[0];
+    public <T> List<T> searchByNativeQueryWithBean(NativeQuery nativeQuery, Class<T> beanClazz) {
+        List<T> result = new ArrayList<T>();
+        Query query = getQuery(nativeQuery);
+        if (query != null) {
+            // Get Constructor object of Passed Bean
+            Constructor<?> beanClassConstructor = (Constructor<?>) beanClazz.getDeclaredConstructors()[0];
 
-	    Class<?>[] constructorParameterTypes = beanClassConstructor
-		    .getParameterTypes();
+            Class<?>[] constructorParameterTypes = beanClassConstructor.getParameterTypes();
 
-	    if (!query.getParameters().isEmpty()) {
-		if (nativeQuery.getQueryParamList() == null
-			|| nativeQuery.getQueryParamList().isEmpty()) {
-		    throw DaoRuntimeException.searchParameterMissingException(
-			    nativeQuery.getQueryString(),
-			    nativeQuery.getQueryParamList());
-		}
-		int paramCount = 1;
-		for (Object paramValue : nativeQuery.getQueryParamList()) {
-		    query.setParameter(paramCount, paramValue);
-		    paramCount++;
-		}
-	    }
+            if (!query.getParameters().isEmpty()) {
+                if (nativeQuery.getQueryParamList() == null || nativeQuery.getQueryParamList().isEmpty()) {
+                    throw DaoRuntimeException.searchParameterMissingException(nativeQuery.getQueryString(),
+                            nativeQuery.getQueryParamList());
+                }
+                int paramCount = 1;
+                for (Object paramValue : nativeQuery.getQueryParamList()) {
+                    query.setParameter(paramCount, paramValue);
+                    paramCount++;
+                }
+            }
 
-	    @SuppressWarnings("unchecked")
-	    List<Object[]> rows = query.getResultList();
+            @SuppressWarnings("unchecked")
+            List<Object[]> rows = query.getResultList();
 
-	    for (Object[] columns : rows) {
-		Object[] constructorArgs = new Object[constructorParameterTypes.length];
-		if (columns.length != constructorParameterTypes.length) {
-		    throw DaoRuntimeException
-			    .ColumnParameterNumberMismatchException(beanClazz
-				    .getName());
-		}
-		for (int j = 0; j < columns.length; j++) {
-		    Object columnValue = columns[j];
-		    Class<?> parameterType = constructorParameterTypes[j];
-		    LOGGER.trace(
-			    "Column Value is {} corresponding Constructor Parameter Type is {}",
-			    columnValue, parameterType.getName());
-		    // convert the column value to the correct type--if possible
-		    constructorArgs[j] = DaoConversionManager
-			    .getDefaultManager().convertObject(columnValue,
-				    parameterType);
+            for (Object[] columns : rows) {
+                Object[] constructorArgs = new Object[constructorParameterTypes.length];
+                if (columns.length != constructorParameterTypes.length) {
+                    throw DaoRuntimeException.ColumnParameterNumberMismatchException(beanClazz.getName());
+                }
+                for (int j = 0; j < columns.length; j++) {
+                    Object columnValue = columns[j];
+                    Class<?> parameterType = constructorParameterTypes[j];
+                    LOGGER.trace("Column Value is {} corresponding Constructor Parameter Type is {}", columnValue,
+                            parameterType.getName());
+                    // convert the column value to the correct type--if possible
+                    constructorArgs[j] = DaoConversionManager.getDefaultManager().convertObject(columnValue,
+                            parameterType);
 
-		}
-		try {
-		    @SuppressWarnings("unchecked")
-		    T bean = (T) beanClassConstructor
-			    .newInstance(constructorArgs);
-		    result.add(bean);
+                }
+                try {
+                    @SuppressWarnings("unchecked")
+                    T bean = (T) beanClassConstructor.newInstance(constructorArgs);
+                    result.add(bean);
 
-		} catch (Exception exception) {
-		    throw DaoRuntimeException.ColumnParameterMismatchException(
-			    beanClazz.getName(), exception);
-		}
+                } catch (Exception exception) {
+                    throw DaoRuntimeException.ColumnParameterMismatchException(beanClazz.getName(), exception);
+                }
 
-	    }
-	}
-	return result;
+            }
+        }
+        return result;
     }
 
     private Query getQuery(NamedQuery namedQuery) {
-	LOGGER.trace("NamedQuery: {}", namedQuery);
-	if (namedQuery == null
-		|| Strings.isNullOrEmpty(namedQuery.getQueryName())) {
-	    throw DaoRuntimeException.searchError(namedQuery.getQueryName(),
-		    null);
-	}
-	Query query = entityManager.createNamedQuery(namedQuery.getQueryName());
-	if (namedQuery.getLockModeType() != null) {
-	    LOGGER.trace("Setting Lock Mode Type to {}", namedQuery
-		    .getLockModeType().name());
-	    query.setLockMode(namedQuery.getLockModeType());
-	}
-	Map<String, Object> hints = namedQuery.getHints();
-	Set<String> hintSet = hints.keySet();
-	for (String hint : hintSet) {
-	    LOGGER.trace("Setting hint {} with value {}", hint, hints.get(hint));
-	    query.setHint(hint, hints.get(hint));
-	}
-	query.setFirstResult(namedQuery.getStartPosition());
-	query.setMaxResults(namedQuery.getMaxResults());
-	return query;
+        LOGGER.trace("NamedQuery: {}", namedQuery);
+        if (namedQuery == null || Strings.isNullOrEmpty(namedQuery.getQueryName())) {
+            throw DaoRuntimeException.searchError(namedQuery.getQueryName(), null);
+        }
+        Query query = entityManager.createNamedQuery(namedQuery.getQueryName());
+        if (namedQuery.getLockModeType() != null) {
+            LOGGER.trace("Setting Lock Mode Type to {}", namedQuery.getLockModeType().name());
+            query.setLockMode(namedQuery.getLockModeType());
+        }
+        Map<String, Object> hints = namedQuery.getHints();
+        Set<String> hintSet = hints.keySet();
+        for (String hint : hintSet) {
+            LOGGER.trace("Setting hint {} with value {}", hint, hints.get(hint));
+            query.setHint(hint, hints.get(hint));
+        }
+        query.setFirstResult(namedQuery.getStartPosition());
+        query.setMaxResults(namedQuery.getMaxResults());
+        return query;
     }
 
     private Query getQuery(NativeQuery nativeQuery) {
-	LOGGER.trace("NativeQuery: {}", nativeQuery);
-	if (nativeQuery == null
-		|| Strings.isNullOrEmpty(nativeQuery.getQueryString())) {
-	    throw DaoRuntimeException.searchError(nativeQuery.getQueryString(),
-		    null);
-	}
-	Query query = entityManager.createNativeQuery(nativeQuery
-		.getQueryString());
-	return query;
+        LOGGER.trace("NativeQuery: {}", nativeQuery);
+        if (nativeQuery == null || Strings.isNullOrEmpty(nativeQuery.getQueryString())) {
+            throw DaoRuntimeException.searchError(nativeQuery.getQueryString(), null);
+        }
+        Query query = entityManager.createNativeQuery(nativeQuery.getQueryString());
+        return query;
     }
 
     private void closeEntityManager(EntityManager entityManager) {
-	if (entityManager != null && entityManager.isOpen()) {
-	    LOGGER.trace("Closing Entity Manager...");
-	    entityManager.close();
-	    LOGGER.trace("Closed entitiyManager.");
-	}
+        if (entityManager != null && entityManager.isOpen()) {
+            LOGGER.trace("Closing Entity Manager...");
+            entityManager.close();
+            LOGGER.trace("Closed entitiyManager.");
+        }
     }
 
     private String getEntityClassName() {
-	if (entityClass != null) {
-	    return entityClass.getClass().getName();
-	} else {
-	    return NO_ENTITY_CLASS;
-	}
+        if (entityClass != null) {
+            return entityClass.getClass().getName();
+        } else {
+            return NO_ENTITY_CLASS;
+        }
     }
 
 }

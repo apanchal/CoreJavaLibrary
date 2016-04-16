@@ -24,14 +24,14 @@ public class SearchResult implements Serializable {
      */
     @SuppressWarnings("rawtypes")
     public List getResult() {
-	return result;
+        return result;
     }
 
     /**
      * The result of the search.
      */
     public void setResult(@SuppressWarnings("rawtypes") List results) {
-	this.result = results;
+        this.result = results;
     }
 
     /**
@@ -39,7 +39,7 @@ public class SearchResult implements Serializable {
      * had been specified. (-1 means unspecified.)
      */
     public int getTotalCount() {
-	return total;
+        return total;
     }
 
     /**
@@ -47,6 +47,6 @@ public class SearchResult implements Serializable {
      * had been specified. (-1 means unspecified.)
      */
     public void setTotalCount(int totalCount) {
-	this.total = totalCount;
+        this.total = totalCount;
     }
 }

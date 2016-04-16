@@ -116,13 +116,11 @@ public interface CoreService<T extends IPersistable<ID>, ID extends Serializable
      * @see
      */
     @SuppressWarnings("rawtypes")
-    <S extends PersistentEntity> List<S> searchByNativeQuery(
-	    String nativeQuery, Class<S> targetedEntityClass);
+    <S extends PersistentEntity> List<S> searchByNativeQuery(String nativeQuery, Class<S> targetedEntityClass);
 
     /**
      * @see
      */
-    public <P> List<P> searchByNativeQueryWithBean(NativeQuery nativeQuery,
-	    Class<P> beanClazz);
+    public <P> List<P> searchByNativeQueryWithBean(NativeQuery nativeQuery, Class<P> beanClazz);
 
 }

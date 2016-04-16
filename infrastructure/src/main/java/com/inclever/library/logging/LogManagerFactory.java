@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.inclever.library.configuration.LibraryConfiguration;
+
 public class LogManagerFactory {
 
     /**

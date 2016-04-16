@@ -31,7 +31,6 @@ public class ExceptionTest {
         }
     }
 
-    
     @Test
     @ExceptionHandler(handler = ExceptionTestHandler.class)
     public void throwRuntimeException() {

@@ -41,8 +41,7 @@ public interface MetadataUtil {
      * @throws IllegalArgumentException
      *             if the class does not have the given property.
      */
-    Metadata get(Class<?> rootEntityClass, String propertyPath)
-	    throws IllegalArgumentException;
+    Metadata get(Class<?> rootEntityClass, String propertyPath) throws IllegalArgumentException;
 
     /**
      * Return the actual entity class registered with the persistence provider.

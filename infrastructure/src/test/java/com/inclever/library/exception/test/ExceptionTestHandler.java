@@ -35,8 +35,7 @@ public class ExceptionTestHandler extends AbstractExceptionHandler implements Ha
         LOGGER.error(getExceptionLog(throwable));
         return throwable;
     }
-    
-    
+
     public Throwable handle(final NullPointerException nullPointerException, final Object... obj) {
         LOGGER.error(getExceptionLog(nullPointerException));
         return nullPointerException;

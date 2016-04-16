@@ -23,130 +23,130 @@ import com.inclever.library.logging.LogManagerFactory;
 
 @Scope(org.springframework.beans.factory.config.BeanDefinition.SCOPE_PROTOTYPE)
 public class CoreServiceImpl<MODEL extends IPersistable<IDENTIFIER>, IDENTIFIER extends Serializable>
-		implements CoreService<MODEL, IDENTIFIER> {
+        implements CoreService<MODEL, IDENTIFIER> {
 
-	private IPersistentEntityDAO<MODEL, IDENTIFIER> genericJPADAOImpl;
+    private IPersistentEntityDAO<MODEL, IDENTIFIER> genericJPADAOImpl;
 
-	private Class<MODEL> entityClazz;
+    private Class<MODEL> entityClazz;
 
-	private static final Logger LOGGER = LogManagerFactory.getInstance().getLogger(CoreServiceImpl.class);
+    private static final Logger LOGGER = LogManagerFactory.getInstance().getLogger(CoreServiceImpl.class);
 
-	@Autowired()
-	public void setGenericJPADAOImpl(
-			@Qualifier("genericJPADAOImpl") IPersistentEntityDAO<MODEL, IDENTIFIER> genericJPADAOImpl) {
-		this.genericJPADAOImpl = genericJPADAOImpl;
-	}
+    @Autowired()
+    public void setGenericJPADAOImpl(
+            @Qualifier("genericJPADAOImpl") IPersistentEntityDAO<MODEL, IDENTIFIER> genericJPADAOImpl) {
+        this.genericJPADAOImpl = genericJPADAOImpl;
+    }
 
-	@SuppressWarnings("unchecked")
-	public CoreServiceImpl() {
-		super();
-		ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
+    @SuppressWarnings("unchecked")
+    public CoreServiceImpl() {
+        super();
+        ParameterizedType genericSuperclass = (ParameterizedType) getClass().getGenericSuperclass();
 
-		this.entityClazz = (Class<MODEL>) genericSuperclass.getActualTypeArguments()[0];
+        this.entityClazz = (Class<MODEL>) genericSuperclass.getActualTypeArguments()[0];
 
-	}
+    }
 
-	@PostConstruct
-	public void setEntity() {
-		LOGGER.debug("Post Construct Called..");
-		genericJPADAOImpl.setEntityClass(entityClazz);
-	}
+    @PostConstruct
+    public void setEntity() {
+        LOGGER.debug("Post Construct Called..");
+        genericJPADAOImpl.setEntityClass(entityClazz);
+    }
 
-	@Override
-	public <S extends MODEL> void saveEntity(S entity) {
-		genericJPADAOImpl.persist(entity);
+    @Override
+    public <S extends MODEL> void saveEntity(S entity) {
+        genericJPADAOImpl.persist(entity);
 
-	}
+    }
 
-	@Override
-	public <S extends MODEL> S mergeEntity(S entity) {
-		return genericJPADAOImpl.merge(entity);
-	}
+    @Override
+    public <S extends MODEL> S mergeEntity(S entity) {
+        return genericJPADAOImpl.merge(entity);
+    }
 
-	@Override
-	public void refreshEntity(MODEL entity) {
-		genericJPADAOImpl.refresh(entity);
+    @Override
+    public void refreshEntity(MODEL entity) {
+        genericJPADAOImpl.refresh(entity);
 
-	}
+    }
 
-	@Override
-	public <S extends MODEL> void deleteEntity(IDENTIFIER id, Class<S> targetedEntity) {
-		genericJPADAOImpl.remove(id, targetedEntity);
-	}
+    @Override
+    public <S extends MODEL> void deleteEntity(IDENTIFIER id, Class<S> targetedEntity) {
+        genericJPADAOImpl.remove(id, targetedEntity);
+    }
 
-	@Override
-	public void deleteEntity(MODEL entity) {
-		genericJPADAOImpl.remove(entity);
+    @Override
+    public void deleteEntity(MODEL entity) {
+        genericJPADAOImpl.remove(entity);
 
-	}
+    }
 
-	@Override
-	public void deleteEntityById(IDENTIFIER id) {
-		genericJPADAOImpl.remove(id);
-	}
+    @Override
+    public void deleteEntityById(IDENTIFIER id) {
+        genericJPADAOImpl.remove(id);
+    }
 
-	@Override
-	public <S extends MODEL> int deleteAllEntities(Class<S> targetedEntityClass) {
-		return genericJPADAOImpl.removeAll(targetedEntityClass);
-	}
+    @Override
+    public <S extends MODEL> int deleteAllEntities(Class<S> targetedEntityClass) {
+        return genericJPADAOImpl.removeAll(targetedEntityClass);
+    }
 
-	@Override
-	public int deleteAllEntities() {
-		// TODO Auto-generated method stub
-		return genericJPADAOImpl.removeAll();
-	}
+    @Override
+    public int deleteAllEntities() {
+        // TODO Auto-generated method stub
+        return genericJPADAOImpl.removeAll();
+    }
 
-	@Override
-	public <S extends MODEL> S findEntity(IDENTIFIER id, Class<S> targetedEntity) {
-		return genericJPADAOImpl.find(id, targetedEntity);
-	}
+    @Override
+    public <S extends MODEL> S findEntity(IDENTIFIER id, Class<S> targetedEntity) {
+        return genericJPADAOImpl.find(id, targetedEntity);
+    }
 
-	@Override
-	public MODEL findEntityById(IDENTIFIER id) {
-		return genericJPADAOImpl.find(id);
-	}
+    @Override
+    public MODEL findEntityById(IDENTIFIER id) {
+        return genericJPADAOImpl.find(id);
+    }
 
-	@Override
-	public List<MODEL> listAllEntities() {
-		return genericJPADAOImpl.findAll();
-	}
+    @Override
+    public List<MODEL> listAllEntities() {
+        return genericJPADAOImpl.findAll();
+    }
 
-	@Override
-	public <S extends MODEL> List<MODEL> listAllEntities(Class<S> targetedEntityClass) {
-		return genericJPADAOImpl.findAll(targetedEntityClass);
-	}
+    @Override
+    public <S extends MODEL> List<MODEL> listAllEntities(Class<S> targetedEntityClass) {
+        return genericJPADAOImpl.findAll(targetedEntityClass);
+    }
 
-	@Override
-	public SearchResult searchAndCount(ISearch search) {
-		return genericJPADAOImpl.searchAndCount(search);
-	}
+    @Override
+    public SearchResult searchAndCount(ISearch search) {
+        return genericJPADAOImpl.searchAndCount(search);
+    }
 
-	@Override
-	public List<MODEL> searchEntity(ISearch search) {
-		return genericJPADAOImpl.search(search);
-	}
+    @Override
+    public List<MODEL> searchEntity(ISearch search) {
+        return genericJPADAOImpl.search(search);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public List searchEntity(NamedQuery namedQuery) {
-		return genericJPADAOImpl.search(namedQuery);
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public List searchEntity(NamedQuery namedQuery) {
+        return genericJPADAOImpl.search(namedQuery);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public List searchEntity(NativeQuery nativeQuery) {
-		return genericJPADAOImpl.search(nativeQuery);
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public List searchEntity(NativeQuery nativeQuery) {
+        return genericJPADAOImpl.search(nativeQuery);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public <S extends PersistentEntity> List<S> searchByNativeQuery(String nativeQuery, Class<S> targetedEntityClass) {
-		return genericJPADAOImpl.searchByNativeQuery(nativeQuery, targetedEntityClass);
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public <S extends PersistentEntity> List<S> searchByNativeQuery(String nativeQuery, Class<S> targetedEntityClass) {
+        return genericJPADAOImpl.searchByNativeQuery(nativeQuery, targetedEntityClass);
+    }
 
-	@Override
-	public <P> List<P> searchByNativeQueryWithBean(NativeQuery nativeQuery, Class<P> beanClazz) {
-		return genericJPADAOImpl.searchByNativeQueryWithBean(nativeQuery, beanClazz);
-	}
+    @Override
+    public <P> List<P> searchByNativeQueryWithBean(NativeQuery nativeQuery, Class<P> beanClazz) {
+        return genericJPADAOImpl.searchByNativeQueryWithBean(nativeQuery, beanClazz);
+    }
 
 }

@@ -15,34 +15,33 @@ public class JpaUtil {
     @PersistenceUnit
     private EntityManagerFactory entityManagerFactory;
 
-    private static final Logger logger = LogManagerFactory.getInstance()
-	    .getLogger(JpaUtil.class);
+    private static final Logger logger = LogManagerFactory.getInstance().getLogger(JpaUtil.class);
 
     /*
      * static { try { emf = Persistence.createEntityManagerFactory("MyPu");
      * 
-     * } catch (Throwable ex) {
-     * logger.error("Initial SessionFactory creation failed", ex); throw new
+     * } catch (Throwable ex) { logger.error(
+     * "Initial SessionFactory creation failed", ex); throw new
      * ExceptionInInitializerError(ex); } }
      */
 
     private JpaUtil() {
-	super();
-	logger.debug("----- JpaUtil Invoked--------------");
+        super();
+        logger.debug("----- JpaUtil Invoked--------------");
     }
 
     public void setEntityManagerFactory(EntityManagerFactory factory) {
-	logger.debug("Entity Manager Factory set....");
-	entityManagerFactory = factory;
+        logger.debug("Entity Manager Factory set....");
+        entityManagerFactory = factory;
 
     }
 
     public EntityManager getEntityManager() {
-	logger.debug("entity manager factory " + entityManagerFactory);
-	if (entityManagerFactory != null) {
-	    return entityManagerFactory.createEntityManager();
-	} else {
-	    return null;
-	}
+        logger.debug("entity manager factory " + entityManagerFactory);
+        if (entityManagerFactory != null) {
+            return entityManagerFactory.createEntityManager();
+        } else {
+            return null;
+        }
     }
 }

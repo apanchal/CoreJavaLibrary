@@ -9,27 +9,27 @@ import com.inclever.library.logging.LogManagerFactory;
 
 public class DaoExceptionHandler extends AbstractExceptionHandler implements Handler {
 
-	private final Logger logger = LogManagerFactory.getInstance().getLogger(DaoExceptionHandler.class);
+    private final Logger logger = LogManagerFactory.getInstance().getLogger(DaoExceptionHandler.class);
 
-	public Throwable handle(Throwable throwable, Object... params) {
-		logger.error(getExceptionLog(throwable));
-		return throwable;
-	}
+    public Throwable handle(Throwable throwable, Object... params) {
+        logger.error(getExceptionLog(throwable));
+        return throwable;
+    }
 
-	public Throwable handle(DaoException daoAccessException, Object... params) {
-		logger.error(getExceptionLog(daoAccessException));
-		daoAccessException.setHasBeenLogged(true);
-		return daoAccessException;
-	}
+    public Throwable handle(DaoException daoAccessException, Object... params) {
+        logger.error(getExceptionLog(daoAccessException));
+        daoAccessException.setHasBeenLogged(true);
+        return daoAccessException;
+    }
 
-	public Throwable handle(DaoRuntimeException daoRuntimeException, Object... params) {
-		logger.error(daoRuntimeException.getMessage());
-		daoRuntimeException.setHasBeenLogged(true);
-		return daoRuntimeException;
-	}
+    public Throwable handle(DaoRuntimeException daoRuntimeException, Object... params) {
+        logger.error(daoRuntimeException.getMessage());
+        daoRuntimeException.setHasBeenLogged(true);
+        return daoRuntimeException;
+    }
 
-	public Populator getPopulator() {
-		return null;
-	}
+    public Populator getPopulator() {
+        return null;
+    }
 
 }

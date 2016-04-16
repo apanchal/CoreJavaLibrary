@@ -91,8 +91,7 @@ public class Field implements Serializable {
      * Here are some examples:
      * 
      * <pre>
-     * new Field(&quot;{firstName}||' '||{initial}||' '||upper({lastName})&quot;,
-     * 	Field.OP_CUSTOM);
+     * new Field(&quot;{firstName}||' '||{initial}||' '||upper({lastName})&quot;, Field.OP_CUSTOM);
      * new Field(&quot;max(({top} - {bottom}) / 2)&quot;, Field.OP_CUSTOM);
      * </pre>
      */
@@ -102,146 +101,145 @@ public class Field implements Serializable {
     }
 
     public Field(String property) {
-	this.property = property;
+        this.property = property;
     }
 
     public Field(String property, String key) {
-	this.property = property;
-	this.key = key;
+        this.property = property;
+        this.key = key;
     }
 
     public Field(String property, int operator) {
-	this.property = property;
-	this.operator = operator;
+        this.property = property;
+        this.operator = operator;
     }
 
     public Field(String property, int operator, String key) {
-	this.property = property;
-	this.operator = operator;
-	this.key = key;
+        this.property = property;
+        this.operator = operator;
+        this.key = key;
     }
 
     public String getProperty() {
-	return property;
+        return property;
     }
 
     public void setProperty(String property) {
-	this.property = property;
+        this.property = property;
     }
 
     public String getKey() {
-	return key;
+        return key;
     }
 
     public void setKey(String key) {
-	this.key = key;
+        this.key = key;
     }
 
     public int getOperator() {
-	return operator;
+        return operator;
     }
 
     public void setOperator(int operator) {
-	this.operator = operator;
+        this.operator = operator;
     }
 
     @Override
     public int hashCode() {
-	final int prime = 31;
-	int result = 1;
-	result = prime * result + ((key == null) ? 0 : key.hashCode());
-	result = prime * result + operator;
-	result = prime * result
-		+ ((property == null) ? 0 : property.hashCode());
-	return result;
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((key == null) ? 0 : key.hashCode());
+        result = prime * result + operator;
+        result = prime * result + ((property == null) ? 0 : property.hashCode());
+        return result;
     }
 
     @Override
     public boolean equals(Object obj) {
-	if (this == obj) {
-	    return true;
-	}
-	if (obj == null) {
-	    return false;
-	}
-	if (getClass() != obj.getClass()) {
-	    return false;
-	}
-	Field other = (Field) obj;
-	if (key == null) {
-	    if (other.key != null) {
-		return false;
-	    }
-	} else if (!key.equals(other.key)) {
-	    return false;
-	}
-	if (operator != other.operator) {
-	    return false;
-	}
-	if (property == null) {
-	    if (other.property != null) {
-		return false;
-	    }
-	} else if (!property.equals(other.property)) {
-	    return false;
-	}
-	return true;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        Field other = (Field) obj;
+        if (key == null) {
+            if (other.key != null) {
+                return false;
+            }
+        } else if (!key.equals(other.key)) {
+            return false;
+        }
+        if (operator != other.operator) {
+            return false;
+        }
+        if (property == null) {
+            if (other.property != null) {
+                return false;
+            }
+        } else if (!property.equals(other.property)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-	StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-	boolean parens = true;
-	switch (operator) {
-	case OP_AVG:
-	    sb.append("AVG(");
-	    break;
-	case OP_COUNT:
-	    sb.append("COUNT(");
-	    break;
-	case OP_COUNT_DISTINCT:
-	    sb.append("COUNT_DISTINCT(");
-	    break;
-	case OP_MAX:
-	    sb.append("MAX(");
-	    break;
-	case OP_MIN:
-	    sb.append("MIN(");
-	    break;
-	case OP_PROPERTY:
-	    parens = false;
-	    break;
-	case OP_SUM:
-	    sb.append("SUM(");
-	    break;
-	case OP_CUSTOM:
-	    sb.append("CUSTOM: ");
-	    parens = false;
-	    break;
-	default:
-	    sb.append("**INVALID OPERATOR: (" + operator + ")** ");
-	    parens = false;
-	    break;
-	}
+        boolean parens = true;
+        switch (operator) {
+        case OP_AVG:
+            sb.append("AVG(");
+            break;
+        case OP_COUNT:
+            sb.append("COUNT(");
+            break;
+        case OP_COUNT_DISTINCT:
+            sb.append("COUNT_DISTINCT(");
+            break;
+        case OP_MAX:
+            sb.append("MAX(");
+            break;
+        case OP_MIN:
+            sb.append("MIN(");
+            break;
+        case OP_PROPERTY:
+            parens = false;
+            break;
+        case OP_SUM:
+            sb.append("SUM(");
+            break;
+        case OP_CUSTOM:
+            sb.append("CUSTOM: ");
+            parens = false;
+            break;
+        default:
+            sb.append("**INVALID OPERATOR: (" + operator + ")** ");
+            parens = false;
+            break;
+        }
 
-	if (property == null) {
-	    sb.append("null");
-	} else {
-	    sb.append('`');
-	    sb.append(property);
-	    sb.append('`');
-	}
-	if (parens) {
-	    sb.append(')');
-	}
+        if (property == null) {
+            sb.append("null");
+        } else {
+            sb.append('`');
+            sb.append(property);
+            sb.append('`');
+        }
+        if (parens) {
+            sb.append(')');
+        }
 
-	if (key != null) {
-	    sb.append(" as `");
-	    sb.append(key);
-	    sb.append('`');
-	}
+        if (key != null) {
+            sb.append(" as `");
+            sb.append(key);
+            sb.append('`');
+        }
 
-	return sb.toString();
+        return sb.toString();
     }
 }

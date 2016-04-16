@@ -23,9 +23,9 @@ public class ExceptionResource extends ListResourceBundle {
             { "DescriptionHeader", "Exception Description: " }, { "InternalExceptionHeader", "Internal Exception: " },
             { "ExceptionStackTraceHeader", "Exception StackTrace: " }, { "ErrorCodeHeader", "Error Code: " },
             { "InternalExceptionStackHeader", "Internal Exception StackTrace:" },
-            { "LocalExceptionStackHeader", "Local Exception StackTrace:" },
-            { "SQLException", "SQL Exception: " }, { "VendorSQLErrorCodeHeader", "SQL Error Code: " },
-            { "SQLSTATEHeader", "SQL State: " }, { "SQLMessageHeader", "SQL Error Message: " },
+            { "LocalExceptionStackHeader", "Local Exception StackTrace:" }, { "SQLException", "SQL Exception: " },
+            { "VendorSQLErrorCodeHeader", "SQL Error Code: " }, { "SQLSTATEHeader", "SQL State: " },
+            { "SQLMessageHeader", "SQL Error Message: " },
             { "ErrorFormattingMessage", "Error trying to format exception message: {0}  The arguments are: {1}" }
 
     };

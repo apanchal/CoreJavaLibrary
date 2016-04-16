@@ -34,7 +34,7 @@ public interface DaoErrorCodes {
     int NATIVE_SQL_COL_PARAM_MISMATCH_ERROR = CORE_DAO + 10;
 
     int NATIVE_SQL_COL_PARAM_NUMBER_MISMATCH_ERROR = CORE_DAO + 11;
-    
+
     int SEARCH_QUERY_PARAMETER_ERROR = CORE_DAO + 12;
 
     // Conversion Error Codes

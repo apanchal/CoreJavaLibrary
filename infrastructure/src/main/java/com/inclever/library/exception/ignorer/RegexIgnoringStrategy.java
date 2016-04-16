@@ -32,7 +32,7 @@ public class RegexIgnoringStrategy implements IgnoringStrategy {
             }
         }
     }
-    
+
     /**
      * 
      */

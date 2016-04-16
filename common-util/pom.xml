@@ -8,7 +8,7 @@
 		<name>INClever</name>
 		<url>www.inclever.com</url>
 	</organization>
-	<name>Core Java Library</name>
+	<name>Common-Utility</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

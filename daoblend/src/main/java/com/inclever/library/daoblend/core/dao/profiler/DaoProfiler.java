@@ -20,44 +20,44 @@ import com.inclever.library.logging.LogManagerFactory;
 @Aspect
 public class DaoProfiler {
 
-	private static final Logger logger = LogManagerFactory.getInstance().getLogger(DaoProfiler.class);
+    private static final Logger logger = LogManagerFactory.getInstance().getLogger(DaoProfiler.class);
 
-	private static boolean isAuditOn = LogManagerFactory.getInstance().getCoreConfiguration().isAuditOn();
+    private static boolean isAuditOn = LogManagerFactory.getInstance().getCoreConfiguration().isAuditOn();
 
-	public DaoProfiler() {
-		super();
+    public DaoProfiler() {
+        super();
 
-	}
+    }
 
-	@Pointcut("execution(* com.nividous.library.daoblend.core.dao.impl.GenericJPADAOImpl.*(..))")
-	public void daoMethods() {
-	}
+    @Pointcut("execution(* com.nividous.library.daoblend.core.dao.impl.GenericJPADAOImpl.*(..))")
+    public void daoMethods() {
+    }
 
-	@Before("daoMethods()")
-	public void beforOperation(JoinPoint joinPoint) throws Throwable {
-		logger.trace("Entered in {} method.", joinPoint.getSignature().getName());
-	}
+    @Before("daoMethods()")
+    public void beforOperation(JoinPoint joinPoint) throws Throwable {
+        logger.trace("Entered in {} method.", joinPoint.getSignature().getName());
+    }
 
-	@Around("daoMethods()")
-	public Object profileOperation(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-		long startTime = 0;
-		long elapsedTime;
-		if (isAuditOn) {
-			startTime = System.nanoTime();
-		}
-		logger.trace("is Transaction Active? {}.", TransactionSynchronizationManager.isActualTransactionActive());
-		Object output = proceedingJoinPoint.proceed();
-		if (isAuditOn) {
-			elapsedTime = System.nanoTime() - startTime;
-			logger.trace("\nMethod Execution Time: {} ms.", (MILLISECONDS.convert(elapsedTime, NANOSECONDS)));
-		}
-		return output;
+    @Around("daoMethods()")
+    public Object profileOperation(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+        long startTime = 0;
+        long elapsedTime;
+        if (isAuditOn) {
+            startTime = System.nanoTime();
+        }
+        logger.trace("is Transaction Active? {}.", TransactionSynchronizationManager.isActualTransactionActive());
+        Object output = proceedingJoinPoint.proceed();
+        if (isAuditOn) {
+            elapsedTime = System.nanoTime() - startTime;
+            logger.trace("\nMethod Execution Time: {} ms.", (MILLISECONDS.convert(elapsedTime, NANOSECONDS)));
+        }
+        return output;
 
-	}
+    }
 
-	@After("daoMethods()")
-	public void afterOperation(JoinPoint joinPoint) throws Throwable {
-		logger.trace("Exiting from {} method.", joinPoint.getSignature().getName());
-	}
+    @After("daoMethods()")
+    public void afterOperation(JoinPoint joinPoint) throws Throwable {
+        logger.trace("Exiting from {} method.", joinPoint.getSignature().getName());
+    }
 
 }

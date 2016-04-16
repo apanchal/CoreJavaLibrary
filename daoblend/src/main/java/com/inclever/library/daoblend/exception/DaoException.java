@@ -20,39 +20,35 @@ import com.inclever.library.exception.LibraryException;
 public class DaoException extends LibraryException {
 
     /**
-	 * 
-	 */
+     * 
+     */
     private static final long serialVersionUID = 5590645956367173279L;
 
-    private static final String MODULE_NAME = StringPool.OPEN_PARENTHESIS
-	    .concat("DAOBlend Persistence Services - "
-		    .concat(LibraryVersion.getVersion()).concat(".v")
-		    .concat(LibraryVersion.getBuildDate())
-		    .concat(StringPool.DASH)
-		    .concat(LibraryVersion.getBuildNumber())
-		    .concat(StringPool.CLOSE_PARENTHESIS));
+    private static final String MODULE_NAME = StringPool.OPEN_PARENTHESIS.concat("DAOBlend Persistence Services - "
+            .concat(LibraryVersion.getVersion()).concat(".v").concat(LibraryVersion.getBuildDate())
+            .concat(StringPool.DASH).concat(LibraryVersion.getBuildNumber()).concat(StringPool.CLOSE_PARENTHESIS));
 
     public DaoException() {
-	super();
+        super();
     }
 
     /**
      * 
      */
     protected DaoException(String message) {
-	super(message);
+        super(message);
     }
 
     /**
      * 
      */
     protected DaoException(SQLException exception) {
-	super(exception.toString(), exception);
+        super(exception.toString(), exception);
     }
 
     public String getModuleName() {
 
-	return MODULE_NAME;
+        return MODULE_NAME;
     }
 
 }

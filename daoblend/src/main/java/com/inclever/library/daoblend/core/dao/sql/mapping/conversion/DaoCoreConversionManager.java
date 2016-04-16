@@ -16,8 +16,9 @@ public abstract class DaoCoreConversionManager {
      *            - the object that must be converted
      * @param javaClass
      *            - the class that the object must be converted to
-     * @exception - ConversionException, all exceptions will be thrown as this
-     *            type.
+     * @exception -
+     *                ConversionException, all exceptions will be thrown as this
+     *                type.
      * @return - the newly converted object
      */
     public abstract Object convertObject(Object sourceObject, Class<?> javaClass);

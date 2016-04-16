@@ -39,8 +39,7 @@ import com.inclever.library.daoblend.exception.DaoConversionException;
  * </ul>
  */
 @SuppressWarnings("rawtypes")
-public class DaoConversionManager extends DaoCoreConversionManager implements
-	Serializable, Cloneable {
+public class DaoConversionManager extends DaoCoreConversionManager implements Serializable, Cloneable {
     /**
      * 
      */
@@ -71,19 +70,19 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
     protected Map dataTypesConvertedToAClass;
 
     public DaoConversionManager() {
-	this.dataTypesConvertedFromAClass = new Hashtable();
-	this.dataTypesConvertedToAClass = new Hashtable();
+        this.dataTypesConvertedFromAClass = new Hashtable();
+        this.dataTypesConvertedToAClass = new Hashtable();
     }
 
     /**
      * INTERNAL:
      */
     public Object clone() {
-	try {
-	    return super.clone();
-	} catch (CloneNotSupportedException exception) {
-	    return null;
-	}
+        try {
+            return super.clone();
+        } catch (CloneNotSupportedException exception) {
+            return null;
+        }
     }
 
     /**
@@ -94,118 +93,113 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            - the object that must be converted
      * @param javaClass
      *            - the class that the object must be converted to
-     * @exception - DaoConversionException, all exceptions will be thrown as
-     *            this type.
+     * @exception -
+     *                DaoConversionException, all exceptions will be thrown as
+     *                this type.
      * @return - the newly converted object
      */
     @SuppressWarnings("unchecked")
     @Override
-    public Object convertObject(Object sourceObject, Class javaClass)
-	    throws DaoConversionException {
-	if (sourceObject == null) {
-	    // Check for default null conversion.
-	    // i.e. allow for null to be defaulted to "", or 0 etc.
-	    if (javaClass != null) {
-		return getDefaultNullValue(javaClass);
-	    } else {
-		return null;
-	    }
-	}
+    public Object convertObject(Object sourceObject, Class javaClass) throws DaoConversionException {
+        if (sourceObject == null) {
+            // Check for default null conversion.
+            // i.e. allow for null to be defaulted to "", or 0 etc.
+            if (javaClass != null) {
+                return getDefaultNullValue(javaClass);
+            } else {
+                return null;
+            }
+        }
 
-	if ((sourceObject.getClass() == javaClass) || (javaClass == null)
-		|| (javaClass == ClassConstants.OBJECT)
-		|| (javaClass == ClassConstants.BLOB)
-		|| (javaClass == ClassConstants.CLOB)) {
-	    return sourceObject;
-	}
+        if ((sourceObject.getClass() == javaClass) || (javaClass == null) || (javaClass == ClassConstants.OBJECT)
+                || (javaClass == ClassConstants.BLOB) || (javaClass == ClassConstants.CLOB)) {
+            return sourceObject;
+        }
 
-	try {
-	    if (javaClass == ClassConstants.STRING) {
-		return convertObjectToString(sourceObject);
-	    } else if (javaClass == ClassConstants.UTILDATE) {
-		return convertObjectToUtilDate(sourceObject);
-	    } else if (javaClass == ClassConstants.SQLDATE) {
-		return convertObjectToDate(sourceObject);
-	    } else if (javaClass == ClassConstants.TIME) {
-		return convertObjectToTime(sourceObject);
-	    } else if (javaClass == ClassConstants.TIMESTAMP) {
-		return convertObjectToTimestamp(sourceObject);
-	    } else if ((javaClass == ClassConstants.CALENDAR)
-		    || (javaClass == ClassConstants.GREGORIAN_CALENDAR)) {
-		return convertObjectToCalendar(sourceObject);
-	    } else if ((javaClass == ClassConstants.CHAR)
-		    || (javaClass == ClassConstants.PCHAR && !(sourceObject instanceof Character))) {
-		return convertObjectToChar(sourceObject);
-	    } else if ((javaClass == ClassConstants.INTEGER)
-		    || (javaClass == ClassConstants.PINT && !(sourceObject instanceof Integer))) {
-		return convertObjectToInteger(sourceObject);
-	    } else if ((javaClass == ClassConstants.DOUBLE)
-		    || (javaClass == ClassConstants.PDOUBLE && !(sourceObject instanceof Double))) {
-		return convertObjectToDouble(sourceObject);
-	    } else if ((javaClass == ClassConstants.FLOAT)
-		    || (javaClass == ClassConstants.PFLOAT && !(sourceObject instanceof Float))) {
-		return convertObjectToFloat(sourceObject);
-	    } else if ((javaClass == ClassConstants.LONG)
-		    || (javaClass == ClassConstants.PLONG && !(sourceObject instanceof Long))) {
-		return convertObjectToLong(sourceObject);
-	    } else if ((javaClass == ClassConstants.SHORT)
-		    || (javaClass == ClassConstants.PSHORT && !(sourceObject instanceof Short))) {
-		return convertObjectToShort(sourceObject);
-	    } else if ((javaClass == ClassConstants.BYTE)
-		    || (javaClass == ClassConstants.PBYTE && !(sourceObject instanceof Byte))) {
-		return convertObjectToByte(sourceObject);
-	    } else if (javaClass == ClassConstants.BIGINTEGER) {
-		return convertObjectToBigInteger(sourceObject);
-	    } else if (javaClass == ClassConstants.BIGDECIMAL) {
-		return convertObjectToBigDecimal(sourceObject);
-	    } else if (javaClass == ClassConstants.NUMBER) {
-		return convertObjectToNumber(sourceObject);
-	    } else if ((javaClass == ClassConstants.BOOLEAN)
-		    || (javaClass == ClassConstants.PBOOLEAN && !(sourceObject instanceof Boolean))) {
-		return convertObjectToBoolean(sourceObject);
-	    } else if (javaClass == ClassConstants.APBYTE) {
-		return convertObjectToByteArray(sourceObject);
-	    } else if (javaClass == ClassConstants.ABYTE) {
-		return convertObjectToByteObjectArray(sourceObject);
-	    } else if (javaClass == ClassConstants.APCHAR) {
-		return convertObjectToCharArray(sourceObject);
-	    } else if (javaClass == ClassConstants.ACHAR) {
-		return convertObjectToCharacterArray(sourceObject);
-	    } else if ((sourceObject.getClass() == ClassConstants.STRING)
-		    && (javaClass == ClassConstants.CLASS)) {
-		return convertObjectToClass(sourceObject);
-	    } else if (javaClass == ClassConstants.URL_Class) {
-		return convertObjectToUrl(sourceObject);
-	    }
-	} catch (DaoConversionException ce) {
-	    throw ce;
-	} catch (Exception e) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    javaClass, e);
-	}
+        try {
+            if (javaClass == ClassConstants.STRING) {
+                return convertObjectToString(sourceObject);
+            } else if (javaClass == ClassConstants.UTILDATE) {
+                return convertObjectToUtilDate(sourceObject);
+            } else if (javaClass == ClassConstants.SQLDATE) {
+                return convertObjectToDate(sourceObject);
+            } else if (javaClass == ClassConstants.TIME) {
+                return convertObjectToTime(sourceObject);
+            } else if (javaClass == ClassConstants.TIMESTAMP) {
+                return convertObjectToTimestamp(sourceObject);
+            } else if ((javaClass == ClassConstants.CALENDAR) || (javaClass == ClassConstants.GREGORIAN_CALENDAR)) {
+                return convertObjectToCalendar(sourceObject);
+            } else if ((javaClass == ClassConstants.CHAR)
+                    || (javaClass == ClassConstants.PCHAR && !(sourceObject instanceof Character))) {
+                return convertObjectToChar(sourceObject);
+            } else if ((javaClass == ClassConstants.INTEGER)
+                    || (javaClass == ClassConstants.PINT && !(sourceObject instanceof Integer))) {
+                return convertObjectToInteger(sourceObject);
+            } else if ((javaClass == ClassConstants.DOUBLE)
+                    || (javaClass == ClassConstants.PDOUBLE && !(sourceObject instanceof Double))) {
+                return convertObjectToDouble(sourceObject);
+            } else if ((javaClass == ClassConstants.FLOAT)
+                    || (javaClass == ClassConstants.PFLOAT && !(sourceObject instanceof Float))) {
+                return convertObjectToFloat(sourceObject);
+            } else if ((javaClass == ClassConstants.LONG)
+                    || (javaClass == ClassConstants.PLONG && !(sourceObject instanceof Long))) {
+                return convertObjectToLong(sourceObject);
+            } else if ((javaClass == ClassConstants.SHORT)
+                    || (javaClass == ClassConstants.PSHORT && !(sourceObject instanceof Short))) {
+                return convertObjectToShort(sourceObject);
+            } else if ((javaClass == ClassConstants.BYTE)
+                    || (javaClass == ClassConstants.PBYTE && !(sourceObject instanceof Byte))) {
+                return convertObjectToByte(sourceObject);
+            } else if (javaClass == ClassConstants.BIGINTEGER) {
+                return convertObjectToBigInteger(sourceObject);
+            } else if (javaClass == ClassConstants.BIGDECIMAL) {
+                return convertObjectToBigDecimal(sourceObject);
+            } else if (javaClass == ClassConstants.NUMBER) {
+                return convertObjectToNumber(sourceObject);
+            } else if ((javaClass == ClassConstants.BOOLEAN)
+                    || (javaClass == ClassConstants.PBOOLEAN && !(sourceObject instanceof Boolean))) {
+                return convertObjectToBoolean(sourceObject);
+            } else if (javaClass == ClassConstants.APBYTE) {
+                return convertObjectToByteArray(sourceObject);
+            } else if (javaClass == ClassConstants.ABYTE) {
+                return convertObjectToByteObjectArray(sourceObject);
+            } else if (javaClass == ClassConstants.APCHAR) {
+                return convertObjectToCharArray(sourceObject);
+            } else if (javaClass == ClassConstants.ACHAR) {
+                return convertObjectToCharacterArray(sourceObject);
+            } else if ((sourceObject.getClass() == ClassConstants.STRING) && (javaClass == ClassConstants.CLASS)) {
+                return convertObjectToClass(sourceObject);
+            } else if (javaClass == ClassConstants.URL_Class) {
+                return convertObjectToUrl(sourceObject);
+            }
+        } catch (DaoConversionException ce) {
+            throw ce;
+        } catch (Exception e) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, javaClass, e);
+        }
 
-	// Check if object is instance of the real class for the primitive
-	// class.
-	if ((((javaClass == ClassConstants.PBOOLEAN) && (sourceObject instanceof Boolean))
-		|| ((javaClass == ClassConstants.PLONG) && (sourceObject instanceof Long))
-		|| ((javaClass == ClassConstants.PINT) && (sourceObject instanceof Integer))
-		|| ((javaClass == ClassConstants.PFLOAT) && (sourceObject instanceof Float))
-		|| ((javaClass == ClassConstants.PDOUBLE) && (sourceObject instanceof Double))
-		|| ((javaClass == ClassConstants.PBYTE) && (sourceObject instanceof Byte))
-		|| ((javaClass == ClassConstants.PCHAR) && (sourceObject instanceof Character)) || ((javaClass == ClassConstants.PSHORT) && (sourceObject instanceof Short)))) {
-	    return sourceObject;
-	}
+        // Check if object is instance of the real class for the primitive
+        // class.
+        if ((((javaClass == ClassConstants.PBOOLEAN) && (sourceObject instanceof Boolean))
+                || ((javaClass == ClassConstants.PLONG) && (sourceObject instanceof Long))
+                || ((javaClass == ClassConstants.PINT) && (sourceObject instanceof Integer))
+                || ((javaClass == ClassConstants.PFLOAT) && (sourceObject instanceof Float))
+                || ((javaClass == ClassConstants.PDOUBLE) && (sourceObject instanceof Double))
+                || ((javaClass == ClassConstants.PBYTE) && (sourceObject instanceof Byte))
+                || ((javaClass == ClassConstants.PCHAR) && (sourceObject instanceof Character))
+                || ((javaClass == ClassConstants.PSHORT) && (sourceObject instanceof Short)))) {
+            return sourceObject;
+        }
 
-	// Delay this check as poor performance.
-	if (javaClass.isInstance(sourceObject)) {
-	    return sourceObject;
-	}
-	if (ClassConstants.NOCONVERSION.isAssignableFrom(javaClass)) {
-	    return sourceObject;
-	}
+        // Delay this check as poor performance.
+        if (javaClass.isInstance(sourceObject)) {
+            return sourceObject;
+        }
+        if (ClassConstants.NOCONVERSION.isAssignableFrom(javaClass)) {
+            return sourceObject;
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		javaClass);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, javaClass);
     }
 
     /**
@@ -214,37 +208,32 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @param sourceObject
      *            Valid instance of String, BigInteger, any Number
      */
-    protected BigDecimal convertObjectToBigDecimal(Object sourceObject)
-	    throws DaoConversionException {
-	BigDecimal bigDecimal = null;
+    protected BigDecimal convertObjectToBigDecimal(Object sourceObject) throws DaoConversionException {
+        BigDecimal bigDecimal = null;
 
-	try {
-	    if (sourceObject instanceof String) {
-		bigDecimal = new BigDecimal((String) sourceObject);
-	    } else if (sourceObject instanceof BigInteger) {
-		bigDecimal = new BigDecimal((BigInteger) sourceObject);
-	    } else if (sourceObject instanceof Number) {
-		// Doubles do not maintain scale, because of this it is
-		// impossible to distinguish between 1 and 1.0. In order to
-		// maintain backwards compatibility both 1 and 1.0 will be
-		// treated as BigDecimal(1).
-		String numberString = String.valueOf(sourceObject);
-		if (numberString.endsWith(".0")
-			|| numberString.contains(".0E+")) {
-		    bigDecimal = new BigDecimal(
-			    ((Number) sourceObject).doubleValue());
-		} else {
-		    bigDecimal = new BigDecimal(numberString);
-		}
-	    } else {
-		throw DaoConversionException.couldNotBeConverted(sourceObject,
-			ClassConstants.BIGDECIMAL);
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.BIGDECIMAL, exception);
-	}
-	return bigDecimal;
+        try {
+            if (sourceObject instanceof String) {
+                bigDecimal = new BigDecimal((String) sourceObject);
+            } else if (sourceObject instanceof BigInteger) {
+                bigDecimal = new BigDecimal((BigInteger) sourceObject);
+            } else if (sourceObject instanceof Number) {
+                // Doubles do not maintain scale, because of this it is
+                // impossible to distinguish between 1 and 1.0. In order to
+                // maintain backwards compatibility both 1 and 1.0 will be
+                // treated as BigDecimal(1).
+                String numberString = String.valueOf(sourceObject);
+                if (numberString.endsWith(".0") || numberString.contains(".0E+")) {
+                    bigDecimal = new BigDecimal(((Number) sourceObject).doubleValue());
+                } else {
+                    bigDecimal = new BigDecimal(numberString);
+                }
+            } else {
+                throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BIGDECIMAL);
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BIGDECIMAL, exception);
+        }
+        return bigDecimal;
     }
 
     /**
@@ -253,39 +242,35 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @param sourceObject
      *            Valid instance of String, BigDecimal, or any Number
      */
-    protected BigInteger convertObjectToBigInteger(Object sourceObject)
-	    throws DaoConversionException {
-	BigInteger bigInteger = null;
+    protected BigInteger convertObjectToBigInteger(Object sourceObject) throws DaoConversionException {
+        BigInteger bigInteger = null;
 
-	try {
-	    if (sourceObject instanceof BigInteger) {
-		bigInteger = (BigInteger) sourceObject;
-	    } else if (sourceObject instanceof String) {
-		bigInteger = new BigInteger((String) sourceObject);
-	    } else if (sourceObject instanceof BigDecimal) {
-		bigInteger = ((BigDecimal) sourceObject).toBigInteger();
-	    } else if (sourceObject instanceof Number) {
-		bigInteger = new BigInteger(
-			String.valueOf(((Number) sourceObject).longValue()));
-	    } else if (sourceObject instanceof Byte[]) {
-		Byte[] objectBytes = (Byte[]) sourceObject;
-		byte[] bytes = new byte[objectBytes.length];
-		for (int index = 0; index < objectBytes.length; index++) {
-		    bytes[index] = objectBytes[index].byteValue();
-		}
-		bigInteger = new BigInteger(bytes);
-	    } else if (sourceObject instanceof byte[]) {
-		bigInteger = new BigInteger((byte[]) sourceObject);
-	    } else {
-		throw DaoConversionException.couldNotBeConverted(sourceObject,
-			ClassConstants.BIGINTEGER);
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.BIGINTEGER, exception);
-	}
+        try {
+            if (sourceObject instanceof BigInteger) {
+                bigInteger = (BigInteger) sourceObject;
+            } else if (sourceObject instanceof String) {
+                bigInteger = new BigInteger((String) sourceObject);
+            } else if (sourceObject instanceof BigDecimal) {
+                bigInteger = ((BigDecimal) sourceObject).toBigInteger();
+            } else if (sourceObject instanceof Number) {
+                bigInteger = new BigInteger(String.valueOf(((Number) sourceObject).longValue()));
+            } else if (sourceObject instanceof Byte[]) {
+                Byte[] objectBytes = (Byte[]) sourceObject;
+                byte[] bytes = new byte[objectBytes.length];
+                for (int index = 0; index < objectBytes.length; index++) {
+                    bytes[index] = objectBytes[index].byteValue();
+                }
+                bigInteger = new BigInteger(bytes);
+            } else if (sourceObject instanceof byte[]) {
+                bigInteger = new BigInteger((byte[]) sourceObject);
+            } else {
+                throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BIGINTEGER);
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BIGINTEGER, exception);
+        }
 
-	return bigInteger;
+        return bigInteger;
     }
 
     /**
@@ -294,37 +279,33 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * -> Boolean(false)
      */
     protected Boolean convertObjectToBoolean(Object sourceObject) {
-	if (sourceObject instanceof Character) {
-	    switch (Character.toLowerCase(((Character) sourceObject)
-		    .charValue())) {
-	    case '1':
-	    case 't':
-		return Boolean.TRUE;
-	    case '0':
-	    case 'f':
-		return Boolean.FALSE;
-	    }
-	}
-	if (sourceObject instanceof String) {
-	    String stringValue = ((String) sourceObject).toLowerCase();
-	    if (stringValue.equals("t") || stringValue.equals("true")
-		    || stringValue.equals("1")) {
-		return Boolean.TRUE;
-	    } else if (stringValue.equals("f") || stringValue.equals("false")
-		    || stringValue.equals("0")) {
-		return Boolean.FALSE;
-	    }
-	}
-	if (sourceObject instanceof Number) {
-	    int intValue = ((Number) sourceObject).intValue();
-	    if (intValue != 0) {
-		return Boolean.TRUE;
-	    } else if (intValue == 0) {
-		return Boolean.FALSE;
-	    }
-	}
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.BOOLEAN);
+        if (sourceObject instanceof Character) {
+            switch (Character.toLowerCase(((Character) sourceObject).charValue())) {
+            case '1':
+            case 't':
+                return Boolean.TRUE;
+            case '0':
+            case 'f':
+                return Boolean.FALSE;
+            }
+        }
+        if (sourceObject instanceof String) {
+            String stringValue = ((String) sourceObject).toLowerCase();
+            if (stringValue.equals("t") || stringValue.equals("true") || stringValue.equals("1")) {
+                return Boolean.TRUE;
+            } else if (stringValue.equals("f") || stringValue.equals("false") || stringValue.equals("0")) {
+                return Boolean.FALSE;
+            }
+        }
+        if (sourceObject instanceof Number) {
+            int intValue = ((Number) sourceObject).intValue();
+            if (intValue != 0) {
+                return Boolean.TRUE;
+            } else if (intValue == 0) {
+                return Boolean.FALSE;
+            }
+        }
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BOOLEAN);
     }
 
     /**
@@ -337,22 +318,19 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         byte.
      *
      */
-    protected Byte convertObjectToByte(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Byte.valueOf((String) sourceObject);
-	    }
-	    if (sourceObject instanceof Number) {
-		return Byte.valueOf(((Number) sourceObject).byteValue());
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.BYTE, exception);
-	}
+    protected Byte convertObjectToByte(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Byte.valueOf((String) sourceObject);
+            }
+            if (sourceObject instanceof Number) {
+                return Byte.valueOf(((Number) sourceObject).byteValue());
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BYTE, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.BYTE);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.BYTE);
     }
 
     /**
@@ -360,49 +338,46 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * does hex conversion of the string values. Some databases have problems
      * with storing blobs unless the blob is stored as a hex string.
      */
-    protected byte[] convertObjectToByteArray(Object sourceObject)
-	    throws DaoConversionException {
-	// Bug#3128838 Used when converted to Byte[]
-	if (sourceObject instanceof byte[]) {
-	    return (byte[]) sourceObject;
-	    // Related to Bug#3128838. Add support to convert to Byte[]
-	} else if (sourceObject instanceof Byte[]) {
-	    Byte[] objectBytes = (Byte[]) sourceObject;
-	    byte[] bytes = new byte[objectBytes.length];
-	    for (int index = 0; index < objectBytes.length; index++) {
-		bytes[index] = objectBytes[index].byteValue();
-	    }
-	    return bytes;
-	} else if (sourceObject instanceof String) {
-	    return Helper.buildBytesFromHexString((String) sourceObject);
-	} else if (sourceObject instanceof Blob) {
-	    Blob blob = (Blob) sourceObject;
-	    try {
-		return blob.getBytes(1L, (int) blob.length());
-	    } catch (SQLException exception) {
-		// TODO:
-		// throw DatabaseException.sqlException(exception);
-	    }
-	} else if (sourceObject instanceof InputStream) {
-	    InputStream inputStream = (InputStream) sourceObject;
-	    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-	    try {
-		int tempInt = inputStream.read();
-		while (tempInt != -1) {
-		    outputStream.write(tempInt);
-		    tempInt = inputStream.read();
-		}
-		return outputStream.toByteArray();
-	    } catch (IOException ioException) {
-		throw DaoConversionException.couldNotBeConverted(sourceObject,
-			ClassConstants.APBYTE, ioException);
-	    }
-	} else if (sourceObject instanceof BigInteger) {
-	    return ((BigInteger) sourceObject).toByteArray();
-	}
+    protected byte[] convertObjectToByteArray(Object sourceObject) throws DaoConversionException {
+        // Bug#3128838 Used when converted to Byte[]
+        if (sourceObject instanceof byte[]) {
+            return (byte[]) sourceObject;
+            // Related to Bug#3128838. Add support to convert to Byte[]
+        } else if (sourceObject instanceof Byte[]) {
+            Byte[] objectBytes = (Byte[]) sourceObject;
+            byte[] bytes = new byte[objectBytes.length];
+            for (int index = 0; index < objectBytes.length; index++) {
+                bytes[index] = objectBytes[index].byteValue();
+            }
+            return bytes;
+        } else if (sourceObject instanceof String) {
+            return Helper.buildBytesFromHexString((String) sourceObject);
+        } else if (sourceObject instanceof Blob) {
+            Blob blob = (Blob) sourceObject;
+            try {
+                return blob.getBytes(1L, (int) blob.length());
+            } catch (SQLException exception) {
+                // TODO:
+                // throw DatabaseException.sqlException(exception);
+            }
+        } else if (sourceObject instanceof InputStream) {
+            InputStream inputStream = (InputStream) sourceObject;
+            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+            try {
+                int tempInt = inputStream.read();
+                while (tempInt != -1) {
+                    outputStream.write(tempInt);
+                    tempInt = inputStream.read();
+                }
+                return outputStream.toByteArray();
+            } catch (IOException ioException) {
+                throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.APBYTE, ioException);
+            }
+        } else if (sourceObject instanceof BigInteger) {
+            return ((BigInteger) sourceObject).toByteArray();
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.APBYTE);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.APBYTE);
     }
 
     /**
@@ -410,14 +385,13 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * does hex conversion of the string values. Some databases have problems
      * with storing blobs unless the blob is stored as a hex string.
      */
-    protected Byte[] convertObjectToByteObjectArray(Object sourceObject)
-	    throws DaoConversionException {
-	byte[] bytes = convertObjectToByteArray(sourceObject);
-	Byte[] objectBytes = new Byte[bytes.length];
-	for (int index = 0; index < bytes.length; index++) {
-	    objectBytes[index] = Byte.valueOf(bytes[index]);
-	}
-	return objectBytes;
+    protected Byte[] convertObjectToByteObjectArray(Object sourceObject) throws DaoConversionException {
+        byte[] bytes = convertObjectToByteArray(sourceObject);
+        Byte[] objectBytes = new Byte[bytes.length];
+        for (int index = 0; index < bytes.length; index++) {
+            objectBytes[index] = Byte.valueOf(bytes[index]);
+        }
+        return objectBytes;
     }
 
     /**
@@ -428,16 +402,14 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            Valid instance of java.util.Date, String, java.sql.Timestamp,
      *            or Long
      */
-    protected Calendar convertObjectToCalendar(Object sourceObject)
-	    throws DaoConversionException {
-	if (sourceObject instanceof Calendar) {
-	    return (Calendar) sourceObject;
-	} else if (sourceObject instanceof java.util.Date) {
-	    // PERF: Avoid double conversion for date subclasses.
-	    return Helper.calendarFromUtilDate((java.util.Date) sourceObject);
-	}
-	return Helper
-		.calendarFromUtilDate(convertObjectToUtilDate(sourceObject));
+    protected Calendar convertObjectToCalendar(Object sourceObject) throws DaoConversionException {
+        if (sourceObject instanceof Calendar) {
+            return (Calendar) sourceObject;
+        } else if (sourceObject instanceof java.util.Date) {
+            // PERF: Avoid double conversion for date subclasses.
+            return Helper.calendarFromUtilDate((java.util.Date) sourceObject);
+        }
+        return Helper.calendarFromUtilDate(convertObjectToUtilDate(sourceObject));
     }
 
     /**
@@ -446,58 +418,53 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @param sourceObject
      *            Valid instance of String or any Number
      */
-    protected Character convertObjectToChar(Object sourceObject)
-	    throws DaoConversionException {
-	if (sourceObject instanceof String) {
-	    if (((String) sourceObject).length() < 1) {
-		// ELBug336192 - Return default null value of char instead of
-		// returning null.
-		return (Character) getDefaultNullValue(ClassConstants.PCHAR);
-	    }
-	    return Character.valueOf(((String) sourceObject).charAt(0));
-	}
+    protected Character convertObjectToChar(Object sourceObject) throws DaoConversionException {
+        if (sourceObject instanceof String) {
+            if (((String) sourceObject).length() < 1) {
+                // ELBug336192 - Return default null value of char instead of
+                // returning null.
+                return (Character) getDefaultNullValue(ClassConstants.PCHAR);
+            }
+            return Character.valueOf(((String) sourceObject).charAt(0));
+        }
 
-	if (sourceObject instanceof Number) {
-	    return Character
-		    .valueOf((char) ((Number) sourceObject).byteValue());
-	}
+        if (sourceObject instanceof Number) {
+            return Character.valueOf((char) ((Number) sourceObject).byteValue());
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.CHAR);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.CHAR);
     }
 
     /**
      * Build a valid instance of a Character array from the given object.
      */
-    protected Character[] convertObjectToCharacterArray(Object sourceObject)
-	    throws DaoConversionException {
-	String stringValue = convertObjectToString(sourceObject);
-	Character[] chars = new Character[stringValue.length()];
-	for (int index = 0; index < stringValue.length(); index++) {
-	    chars[index] = Character.valueOf(stringValue.charAt(index));
-	}
-	return chars;
+    protected Character[] convertObjectToCharacterArray(Object sourceObject) throws DaoConversionException {
+        String stringValue = convertObjectToString(sourceObject);
+        Character[] chars = new Character[stringValue.length()];
+        for (int index = 0; index < stringValue.length(); index++) {
+            chars[index] = Character.valueOf(stringValue.charAt(index));
+        }
+        return chars;
     }
 
     /**
      * Build a valid instance of a char array from the given object.
      */
-    protected char[] convertObjectToCharArray(Object sourceObject)
-	    throws DaoConversionException {
-	if (sourceObject instanceof Character[]) {
-	    Character[] objectChars = (Character[]) sourceObject;
-	    char[] chars = new char[objectChars.length];
-	    for (int index = 0; index < objectChars.length; index++) {
-		chars[index] = objectChars[index].charValue();
-	    }
-	    return chars;
-	}
-	String stringValue = convertObjectToString(sourceObject);
-	char[] chars = new char[stringValue.length()];
-	for (int index = 0; index < stringValue.length(); index++) {
-	    chars[index] = stringValue.charAt(index);
-	}
-	return chars;
+    protected char[] convertObjectToCharArray(Object sourceObject) throws DaoConversionException {
+        if (sourceObject instanceof Character[]) {
+            Character[] objectChars = (Character[]) sourceObject;
+            char[] chars = new char[objectChars.length];
+            for (int index = 0; index < objectChars.length; index++) {
+                chars[index] = objectChars[index].charValue();
+            }
+            return chars;
+        }
+        String stringValue = convertObjectToString(sourceObject);
+        char[] chars = new char[stringValue.length()];
+        for (int index = 0; index < stringValue.length(); index++) {
+            chars[index] = stringValue.charAt(index);
+        }
+        return chars;
     }
 
     /**
@@ -506,25 +473,21 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @param sourceObject
      *            Valid instance of String
      */
-    protected Class convertObjectToClass(Object sourceObject)
-	    throws DaoConversionException {
-	Class theClass = null;
-	if (!(sourceObject instanceof String)) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.CLASS);
-	}
-	try {
+    protected Class convertObjectToClass(Object sourceObject) throws DaoConversionException {
+        Class theClass = null;
+        if (!(sourceObject instanceof String)) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.CLASS);
+        }
+        try {
 
-	    theClass = getPrimitiveClass((String) sourceObject);
-	    if (theClass == null) {
-		theClass = Class.forName((String) sourceObject, true,
-			getClass().getClassLoader());
-	    }
-	} catch (Exception exception) {
-	    throw DaoConversionException.couldNotBeConvertedToClass(
-		    sourceObject, ClassConstants.CLASS, exception);
-	}
-	return theClass;
+            theClass = getPrimitiveClass((String) sourceObject);
+            if (theClass == null) {
+                theClass = Class.forName((String) sourceObject, true, getClass().getClassLoader());
+            }
+        } catch (Exception exception) {
+            throw DaoConversionException.couldNotBeConvertedToClass(sourceObject, ClassConstants.CLASS, exception);
+        }
+        return theClass;
     }
 
     /**
@@ -534,28 +497,26 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            Object of type java.sql.Timestamp, java.util.Date, String or
      *            Long
      */
-    protected java.sql.Date convertObjectToDate(Object sourceObject)
-	    throws DaoConversionException {
-	java.sql.Date date = null;
+    protected java.sql.Date convertObjectToDate(Object sourceObject) throws DaoConversionException {
+        java.sql.Date date = null;
 
-	if (sourceObject instanceof java.sql.Date) {
-	    date = (java.sql.Date) sourceObject;// Helper date is not caught on
-						// class check.
-	} else if (sourceObject instanceof java.sql.Timestamp) {
-	    date = Helper.dateFromTimestamp((java.sql.Timestamp) sourceObject);
-	} else if (sourceObject.getClass() == ClassConstants.UTILDATE) {
-	    date = Helper.sqlDateFromUtilDate((java.util.Date) sourceObject);
-	} else if (sourceObject instanceof Calendar) {
-	    return Helper.dateFromCalendar((Calendar) sourceObject);
-	} else if (sourceObject instanceof String) {
-	    date = Helper.dateFromString((String) sourceObject);
-	} else if (sourceObject instanceof Long) {
-	    date = Helper.dateFromLong((Long) sourceObject);
-	} else {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.SQLDATE);
-	}
-	return date;
+        if (sourceObject instanceof java.sql.Date) {
+            date = (java.sql.Date) sourceObject;// Helper date is not caught on
+            // class check.
+        } else if (sourceObject instanceof java.sql.Timestamp) {
+            date = Helper.dateFromTimestamp((java.sql.Timestamp) sourceObject);
+        } else if (sourceObject.getClass() == ClassConstants.UTILDATE) {
+            date = Helper.sqlDateFromUtilDate((java.util.Date) sourceObject);
+        } else if (sourceObject instanceof Calendar) {
+            return Helper.dateFromCalendar((Calendar) sourceObject);
+        } else if (sourceObject instanceof String) {
+            date = Helper.dateFromString((String) sourceObject);
+        } else if (sourceObject instanceof Long) {
+            date = Helper.dateFromLong((Long) sourceObject);
+        } else {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.SQLDATE);
+        }
+        return date;
     }
 
     /**
@@ -567,21 +528,18 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         NumberFormatException if the String does not contain a parsable
      *         double.
      */
-    protected Double convertObjectToDouble(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Double.valueOf((String) sourceObject);
-	    }
-	    if (sourceObject instanceof Number) {
-		return Double.valueOf(((Number) sourceObject).doubleValue());
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.DOUBLE, exception);
-	}
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.DOUBLE);
+    protected Double convertObjectToDouble(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Double.valueOf((String) sourceObject);
+            }
+            if (sourceObject instanceof Number) {
+                return Double.valueOf(((Number) sourceObject).doubleValue());
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.DOUBLE, exception);
+        }
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.DOUBLE);
     }
 
     /**
@@ -591,22 +549,19 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         NumberFormatException if the String does not contain a parsable
      *         Float.
      */
-    protected Float convertObjectToFloat(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Float.valueOf((String) sourceObject);
-	    }
-	    if (sourceObject instanceof Number) {
-		return Float.valueOf(((Number) sourceObject).floatValue());
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.FLOAT, exception);
-	}
+    protected Float convertObjectToFloat(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Float.valueOf((String) sourceObject);
+            }
+            if (sourceObject instanceof Number) {
+                return Float.valueOf(((Number) sourceObject).floatValue());
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.FLOAT, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.FLOAT);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.FLOAT);
     }
 
     /**
@@ -616,31 +571,28 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         NumberFormatException if the String does not contain a parsable
      *         integer.
      */
-    protected Integer convertObjectToInteger(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Integer.valueOf((String) sourceObject);
-	    }
+    protected Integer convertObjectToInteger(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Integer.valueOf((String) sourceObject);
+            }
 
-	    if (sourceObject instanceof Number) {
-		return Integer.valueOf(((Number) sourceObject).intValue());
-	    }
+            if (sourceObject instanceof Number) {
+                return Integer.valueOf(((Number) sourceObject).intValue());
+            }
 
-	    if (sourceObject instanceof Boolean) {
-		if (((Boolean) sourceObject).booleanValue()) {
-		    return Integer.valueOf(1);
-		} else {
-		    return Integer.valueOf(0);
-		}
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.INTEGER, exception);
-	}
+            if (sourceObject instanceof Boolean) {
+                if (((Boolean) sourceObject).booleanValue()) {
+                    return Integer.valueOf(1);
+                } else {
+                    return Integer.valueOf(0);
+                }
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.INTEGER, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.INTEGER);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.INTEGER);
     }
 
     /**
@@ -651,37 +603,33 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         long.
      *
      */
-    protected Long convertObjectToLong(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Long.valueOf((String) sourceObject);
-	    }
-	    if (sourceObject instanceof Number) {
-		return Long.valueOf(((Number) sourceObject).longValue());
-	    }
-	    if (sourceObject instanceof java.util.Date) {
-		return Long.valueOf(((java.util.Date) sourceObject).getTime());
-	    }
-	    if (sourceObject instanceof java.util.Calendar) {
-		return Long.valueOf(((java.util.Calendar) sourceObject)
-			.getTimeInMillis());
-	    }
+    protected Long convertObjectToLong(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Long.valueOf((String) sourceObject);
+            }
+            if (sourceObject instanceof Number) {
+                return Long.valueOf(((Number) sourceObject).longValue());
+            }
+            if (sourceObject instanceof java.util.Date) {
+                return Long.valueOf(((java.util.Date) sourceObject).getTime());
+            }
+            if (sourceObject instanceof java.util.Calendar) {
+                return Long.valueOf(((java.util.Calendar) sourceObject).getTimeInMillis());
+            }
 
-	    if (sourceObject instanceof Boolean) {
-		if (((Boolean) sourceObject).booleanValue()) {
-		    return Long.valueOf(1);
-		} else {
-		    return Long.valueOf(0);
-		}
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.LONG, exception);
-	}
+            if (sourceObject instanceof Boolean) {
+                if (((Boolean) sourceObject).booleanValue()) {
+                    return Long.valueOf(1);
+                } else {
+                    return Long.valueOf(0);
+                }
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.LONG, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.LONG);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.LONG);
     }
 
     /**
@@ -693,31 +641,28 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         NumberFormatException if the String does not contain a parsable
      *         BigDecimal.
      */
-    protected BigDecimal convertObjectToNumber(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return new BigDecimal((String) sourceObject);
-	    }
+    protected BigDecimal convertObjectToNumber(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return new BigDecimal((String) sourceObject);
+            }
 
-	    if (sourceObject instanceof Number) {
-		return new BigDecimal(((Number) sourceObject).doubleValue());
-	    }
+            if (sourceObject instanceof Number) {
+                return new BigDecimal(((Number) sourceObject).doubleValue());
+            }
 
-	    if (sourceObject instanceof Boolean) {
-		if (((Boolean) sourceObject).booleanValue()) {
-		    return BigDecimal.valueOf(1);
-		} else {
-		    return BigDecimal.valueOf(0);
-		}
-	    }
-	} catch (NumberFormatException exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.NUMBER, exception);
-	}
+            if (sourceObject instanceof Boolean) {
+                if (((Boolean) sourceObject).booleanValue()) {
+                    return BigDecimal.valueOf(1);
+                } else {
+                    return BigDecimal.valueOf(0);
+                }
+            }
+        } catch (NumberFormatException exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.NUMBER, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.NUMBER);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.NUMBER);
     }
 
     /**
@@ -728,31 +673,28 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *         NumberFormatException if the String does not contain a parsable
      *         short.
      */
-    protected Short convertObjectToShort(Object sourceObject)
-	    throws DaoConversionException {
-	try {
-	    if (sourceObject instanceof String) {
-		return Short.valueOf((String) sourceObject);
-	    }
+    protected Short convertObjectToShort(Object sourceObject) throws DaoConversionException {
+        try {
+            if (sourceObject instanceof String) {
+                return Short.valueOf((String) sourceObject);
+            }
 
-	    if (sourceObject instanceof Number) {
-		return Short.valueOf(((Number) sourceObject).shortValue());
-	    }
+            if (sourceObject instanceof Number) {
+                return Short.valueOf(((Number) sourceObject).shortValue());
+            }
 
-	    if (sourceObject instanceof Boolean) {
-		if (((Boolean) sourceObject).booleanValue()) {
-		    return Short.valueOf((short) 1);
-		} else {
-		    return Short.valueOf((short) 0);
-		}
-	    }
-	} catch (Exception exception) {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.SHORT, exception);
-	}
+            if (sourceObject instanceof Boolean) {
+                if (((Boolean) sourceObject).booleanValue()) {
+                    return Short.valueOf((short) 1);
+                } else {
+                    return Short.valueOf((short) 0);
+                }
+            }
+        } catch (Exception exception) {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.SHORT, exception);
+        }
 
-	throw DaoConversionException.couldNotBeConverted(sourceObject,
-		ClassConstants.SHORT);
+        throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.SHORT);
     }
 
     /**
@@ -760,44 +702,41 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * java.util.Date is converted to a timestamp first and then to a string. An
      * array of bytes is converted to a hex string.
      */
-    protected String convertObjectToString(Object sourceObject)
-	    throws DaoConversionException {
-	if (sourceObject.getClass() == ClassConstants.UTILDATE) {
-	    return Helper.printTimestamp(Helper
-		    .timestampFromDate((java.util.Date) sourceObject));
-	} else if (sourceObject instanceof Calendar) {
-	    return Helper.printCalendar((Calendar) sourceObject);
-	} else if (sourceObject instanceof java.sql.Timestamp) {
-	    return Helper.printTimestamp((java.sql.Timestamp) sourceObject);
-	} else if (sourceObject instanceof java.sql.Date) {
-	    return Helper.printDate((java.sql.Date) sourceObject);
-	} else if (sourceObject instanceof java.sql.Time) {
-	    return Helper.printTime((java.sql.Time) sourceObject);
-	} else if (sourceObject instanceof byte[]) {
-	    return Helper.buildHexStringFromBytes((byte[]) sourceObject);
-	    // Bug#3854296 Added support to convert Byte[], char[] and
-	    // Character[] to String correctly
-	} else if (sourceObject instanceof Byte[]) {
-	    return Helper
-		    .buildHexStringFromBytes(convertObjectToByteArray(sourceObject));
-	} else if (sourceObject instanceof char[]) {
-	    return new String((char[]) sourceObject);
-	} else if (sourceObject instanceof Character[]) {
-	    return new String(convertObjectToCharArray(sourceObject));
-	} else if (sourceObject instanceof Class) {
-	    return ((Class) sourceObject).getName();
-	} else if (sourceObject instanceof Character) {
-	    return sourceObject.toString();
-	} else if (sourceObject instanceof Clob) {
-	    Clob clob = (Clob) sourceObject;
-	    try {
-		return clob.getSubString(1L, (int) clob.length());
-	    } catch (SQLException exception) {
-		// TODO: throw DatabaseException.sqlException(exception);
-	    }
-	}
+    protected String convertObjectToString(Object sourceObject) throws DaoConversionException {
+        if (sourceObject.getClass() == ClassConstants.UTILDATE) {
+            return Helper.printTimestamp(Helper.timestampFromDate((java.util.Date) sourceObject));
+        } else if (sourceObject instanceof Calendar) {
+            return Helper.printCalendar((Calendar) sourceObject);
+        } else if (sourceObject instanceof java.sql.Timestamp) {
+            return Helper.printTimestamp((java.sql.Timestamp) sourceObject);
+        } else if (sourceObject instanceof java.sql.Date) {
+            return Helper.printDate((java.sql.Date) sourceObject);
+        } else if (sourceObject instanceof java.sql.Time) {
+            return Helper.printTime((java.sql.Time) sourceObject);
+        } else if (sourceObject instanceof byte[]) {
+            return Helper.buildHexStringFromBytes((byte[]) sourceObject);
+            // Bug#3854296 Added support to convert Byte[], char[] and
+            // Character[] to String correctly
+        } else if (sourceObject instanceof Byte[]) {
+            return Helper.buildHexStringFromBytes(convertObjectToByteArray(sourceObject));
+        } else if (sourceObject instanceof char[]) {
+            return new String((char[]) sourceObject);
+        } else if (sourceObject instanceof Character[]) {
+            return new String(convertObjectToCharArray(sourceObject));
+        } else if (sourceObject instanceof Class) {
+            return ((Class) sourceObject).getName();
+        } else if (sourceObject instanceof Character) {
+            return sourceObject.toString();
+        } else if (sourceObject instanceof Clob) {
+            Clob clob = (Clob) sourceObject;
+            try {
+                return clob.getSubString(1L, (int) clob.length());
+            } catch (SQLException exception) {
+                // TODO: throw DatabaseException.sqlException(exception);
+            }
+        }
 
-	return sourceObject.toString();
+        return sourceObject.toString();
     }
 
     /**
@@ -808,30 +747,28 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            Valid instance of java.sql.Time, String, java.util.Date,
      *            java.sql.Timestamp, or Long
      */
-    protected java.sql.Time convertObjectToTime(Object sourceObject)
-	    throws DaoConversionException {
-	java.sql.Time time = null;
+    protected java.sql.Time convertObjectToTime(Object sourceObject) throws DaoConversionException {
+        java.sql.Time time = null;
 
-	if (sourceObject instanceof java.sql.Time) {
-	    return (java.sql.Time) sourceObject;// Helper timestamp is not
-						// caught on class check.
-	}
+        if (sourceObject instanceof java.sql.Time) {
+            return (java.sql.Time) sourceObject;// Helper timestamp is not
+            // caught on class check.
+        }
 
-	if (sourceObject instanceof String) {
-	    time = Helper.timeFromString((String) sourceObject);
-	} else if (sourceObject.getClass() == ClassConstants.UTILDATE) {
-	    time = Helper.timeFromDate((java.util.Date) sourceObject);
-	} else if (sourceObject instanceof java.sql.Timestamp) {
-	    time = Helper.timeFromTimestamp((java.sql.Timestamp) sourceObject);
-	} else if (sourceObject instanceof Calendar) {
-	    return Helper.timeFromCalendar((Calendar) sourceObject);
-	} else if (sourceObject instanceof Long) {
-	    time = Helper.timeFromLong((Long) sourceObject);
-	} else {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.TIME);
-	}
-	return time;
+        if (sourceObject instanceof String) {
+            time = Helper.timeFromString((String) sourceObject);
+        } else if (sourceObject.getClass() == ClassConstants.UTILDATE) {
+            time = Helper.timeFromDate((java.util.Date) sourceObject);
+        } else if (sourceObject instanceof java.sql.Timestamp) {
+            time = Helper.timeFromTimestamp((java.sql.Timestamp) sourceObject);
+        } else if (sourceObject instanceof Calendar) {
+            return Helper.timeFromCalendar((Calendar) sourceObject);
+        } else if (sourceObject instanceof Long) {
+            time = Helper.timeFromLong((Long) sourceObject);
+        } else {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.TIME);
+        }
+        return time;
     }
 
     /**
@@ -842,33 +779,31 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            Valid obejct of class java.sql.Timestamp, String,
      *            java.util.Date, or Long
      */
-    protected java.sql.Timestamp convertObjectToTimestamp(Object sourceObject)
-	    throws DaoConversionException {
-	java.sql.Timestamp timestamp = null;
+    protected java.sql.Timestamp convertObjectToTimestamp(Object sourceObject) throws DaoConversionException {
+        java.sql.Timestamp timestamp = null;
 
-	if (sourceObject instanceof java.sql.Timestamp) {
-	    return (java.sql.Timestamp) sourceObject;// Helper timestamp is not
-						     // caught on class check.
-	}
+        if (sourceObject instanceof java.sql.Timestamp) {
+            return (java.sql.Timestamp) sourceObject;// Helper timestamp is not
+            // caught on class check.
+        }
 
-	if (sourceObject instanceof String) {
-	    timestamp = Helper.timestampFromString((String) sourceObject);
-	} else if (sourceObject instanceof java.util.Date) {// This handles all
-							    // date and
-							    // subclasses,
-							    // sql.Date,
-							    // sql.Time
-							    // conversions.
-	    timestamp = Helper.timestampFromDate((java.util.Date) sourceObject);
-	} else if (sourceObject instanceof Calendar) {
-	    return Helper.timestampFromCalendar((Calendar) sourceObject);
-	} else if (sourceObject instanceof Long) {
-	    timestamp = Helper.timestampFromLong((Long) sourceObject);
-	} else {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.TIMESTAMP);
-	}
-	return timestamp;
+        if (sourceObject instanceof String) {
+            timestamp = Helper.timestampFromString((String) sourceObject);
+        } else if (sourceObject instanceof java.util.Date) {// This handles all
+            // date and
+            // subclasses,
+            // sql.Date,
+            // sql.Time
+            // conversions.
+            timestamp = Helper.timestampFromDate((java.util.Date) sourceObject);
+        } else if (sourceObject instanceof Calendar) {
+            return Helper.timestampFromCalendar((Calendar) sourceObject);
+        } else if (sourceObject instanceof Long) {
+            timestamp = Helper.timestampFromLong((Long) sourceObject);
+        } else {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.TIMESTAMP);
+        }
+        return timestamp;
     }
 
     /**
@@ -878,21 +813,18 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @param sourceObject
      *            Valid instance of java.net.URL, or String
      */
-    protected URL convertObjectToUrl(Object sourceObject)
-	    throws DaoConversionException {
-	if (sourceObject.getClass() == ClassConstants.URL_Class) {
-	    return (URL) sourceObject;
-	} else if (sourceObject.getClass() == ClassConstants.STRING) {
-	    try {
-		return new URL((String) sourceObject);
-	    } catch (Exception e) {
-		throw DaoConversionException.couldNotBeConverted(sourceObject,
-			ClassConstants.URL_Class, e);
-	    }
-	} else {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.URL_Class);
-	}
+    protected URL convertObjectToUrl(Object sourceObject) throws DaoConversionException {
+        if (sourceObject.getClass() == ClassConstants.URL_Class) {
+            return (URL) sourceObject;
+        } else if (sourceObject.getClass() == ClassConstants.STRING) {
+            try {
+                return new URL((String) sourceObject);
+            } catch (Exception e) {
+                throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.URL_Class, e);
+            }
+        } else {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.URL_Class);
+        }
     }
 
     /**
@@ -903,34 +835,30 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      *            Valid instance of java.util.Date, String, java.sql.Timestamp,
      *            or Long
      */
-    protected java.util.Date convertObjectToUtilDate(Object sourceObject)
-	    throws DaoConversionException {
-	java.util.Date date = null;
+    protected java.util.Date convertObjectToUtilDate(Object sourceObject) throws DaoConversionException {
+        java.util.Date date = null;
 
-	if (sourceObject.getClass() == java.util.Date.class) {
-	    date = (java.util.Date) sourceObject;// used when converting
-						 // util.Date to Calendar
-	} else if (sourceObject instanceof java.sql.Date) {
-	    date = Helper.utilDateFromSQLDate((java.sql.Date) sourceObject);
-	} else if (sourceObject instanceof java.sql.Time) {
-	    date = Helper.utilDateFromTime((java.sql.Time) sourceObject);
-	} else if (sourceObject instanceof String) {
-	    date = Helper.utilDateFromTimestamp(Helper
-		    .timestampFromString((String) sourceObject));
-	} else if (sourceObject instanceof java.sql.Timestamp) {
-	    date = Helper
-		    .utilDateFromTimestamp((java.sql.Timestamp) sourceObject);
-	} else if (sourceObject instanceof Calendar) {
-	    return ((Calendar) sourceObject).getTime();
-	} else if (sourceObject instanceof Long) {
-	    date = Helper.utilDateFromLong((Long) sourceObject);
-	} else if (sourceObject instanceof java.util.Date) {
-	    date = new java.util.Date(((java.util.Date) sourceObject).getTime());
-	} else {
-	    throw DaoConversionException.couldNotBeConverted(sourceObject,
-		    ClassConstants.UTILDATE);
-	}
-	return date;
+        if (sourceObject.getClass() == java.util.Date.class) {
+            date = (java.util.Date) sourceObject;// used when converting
+            // util.Date to Calendar
+        } else if (sourceObject instanceof java.sql.Date) {
+            date = Helper.utilDateFromSQLDate((java.sql.Date) sourceObject);
+        } else if (sourceObject instanceof java.sql.Time) {
+            date = Helper.utilDateFromTime((java.sql.Time) sourceObject);
+        } else if (sourceObject instanceof String) {
+            date = Helper.utilDateFromTimestamp(Helper.timestampFromString((String) sourceObject));
+        } else if (sourceObject instanceof java.sql.Timestamp) {
+            date = Helper.utilDateFromTimestamp((java.sql.Timestamp) sourceObject);
+        } else if (sourceObject instanceof Calendar) {
+            return ((Calendar) sourceObject).getTime();
+        } else if (sourceObject instanceof Long) {
+            date = Helper.utilDateFromLong((Long) sourceObject);
+        } else if (sourceObject instanceof java.util.Date) {
+            date = new java.util.Date(((java.util.Date) sourceObject).getTime());
+        } else {
+            throw DaoConversionException.couldNotBeConverted(sourceObject, ClassConstants.UTILDATE);
+        }
+        return date;
     }
 
     /**
@@ -938,9 +866,8 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * DaoConversionManager's classloader.
      */
 
-    public Class convertClassNameToClass(String className)
-	    throws DaoConversionException {
-	return convertObjectToClass(className);
+    public Class convertClassNameToClass(String className) throws DaoConversionException {
+        return convertObjectToClass(className);
     }
 
     /**
@@ -950,11 +877,11 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * customized through setting the default to a user defined subclass.
      */
     public static DaoConversionManager getDefaultManager() {
-	if (defaultManager == null) {
-	    setDefaultManager(new DaoConversionManager());
-	    defaultManager.setShouldUseClassLoaderFromCurrentThread(true);
-	}
-	return defaultManager;
+        if (defaultManager == null) {
+            setDefaultManager(new DaoConversionManager());
+            defaultManager.setShouldUseClassLoaderFromCurrentThread(true);
+        }
+        return defaultManager;
     }
 
     /**
@@ -963,9 +890,9 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * be given the specified null value.
      */
     public Object getDefaultNullValue(Class theClass) {
-	if (this.defaultNullValues == null)
-	    return null;
-	return getDefaultNullValues().get(theClass);
+        if (this.defaultNullValues == null)
+            return null;
+        return getDefaultNullValues().get(theClass);
     }
 
     /**
@@ -974,14 +901,14 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * be given the specified null value.
      */
     public Map getDefaultNullValues() {
-	return defaultNullValues;
+        return defaultNullValues;
     }
 
     /**
      * INTERNAL
      */
     public boolean hasDefaultNullValues() {
-	return this.defaultNullValues != null;
+        return this.defaultNullValues != null;
     }
 
     /**
@@ -991,78 +918,77 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * the eclipselink.jar.
      */
     public static Class loadClass(String className) {
-	return (Class) getDefaultManager().convertObject(className,
-		ClassConstants.CLASS);
+        return (Class) getDefaultManager().convertObject(className, ClassConstants.CLASS);
     }
 
     /**
      * INTERNAL: This is used to determine the wrapper class for a primitive.
      */
     public static Class getObjectClass(Class javaClass) {
-	// Null means unknown always for classifications.
-	if (javaClass == null) {
-	    return null;
-	}
+        // Null means unknown always for classifications.
+        if (javaClass == null) {
+            return null;
+        }
 
-	if (javaClass.isPrimitive()) {
-	    if (javaClass == ClassConstants.PCHAR) {
-		return ClassConstants.CHAR;
-	    }
-	    if (javaClass == ClassConstants.PINT) {
-		return ClassConstants.INTEGER;
-	    }
-	    if (javaClass == ClassConstants.PDOUBLE) {
-		return ClassConstants.DOUBLE;
-	    }
-	    if (javaClass == ClassConstants.PFLOAT) {
-		return ClassConstants.FLOAT;
-	    }
-	    if (javaClass == ClassConstants.PLONG) {
-		return ClassConstants.LONG;
-	    }
-	    if (javaClass == ClassConstants.PSHORT) {
-		return ClassConstants.SHORT;
-	    }
-	    if (javaClass == ClassConstants.PBYTE) {
-		return ClassConstants.BYTE;
-	    }
-	    if (javaClass == ClassConstants.PBOOLEAN) {
-		return ClassConstants.BOOLEAN;
-	    }
-	} else if (javaClass == ClassConstants.APBYTE) {
-	    return ClassConstants.APBYTE;
-	} else if (javaClass == ClassConstants.APCHAR) {
-	    return ClassConstants.APCHAR;
-	} else {
-	    return javaClass;
-	}
+        if (javaClass.isPrimitive()) {
+            if (javaClass == ClassConstants.PCHAR) {
+                return ClassConstants.CHAR;
+            }
+            if (javaClass == ClassConstants.PINT) {
+                return ClassConstants.INTEGER;
+            }
+            if (javaClass == ClassConstants.PDOUBLE) {
+                return ClassConstants.DOUBLE;
+            }
+            if (javaClass == ClassConstants.PFLOAT) {
+                return ClassConstants.FLOAT;
+            }
+            if (javaClass == ClassConstants.PLONG) {
+                return ClassConstants.LONG;
+            }
+            if (javaClass == ClassConstants.PSHORT) {
+                return ClassConstants.SHORT;
+            }
+            if (javaClass == ClassConstants.PBYTE) {
+                return ClassConstants.BYTE;
+            }
+            if (javaClass == ClassConstants.PBOOLEAN) {
+                return ClassConstants.BOOLEAN;
+            }
+        } else if (javaClass == ClassConstants.APBYTE) {
+            return ClassConstants.APBYTE;
+        } else if (javaClass == ClassConstants.APCHAR) {
+            return ClassConstants.APCHAR;
+        } else {
+            return javaClass;
+        }
 
-	return javaClass;
+        return javaClass;
     }
 
     /**
      * INTERNAL: Returns a class based on the passed in string.
      */
     public static Class getPrimitiveClass(String classType) {
-	if ("int".equals(classType)) {
-	    return Integer.TYPE;
-	} else if ("boolean".equals(classType)) {
-	    return Boolean.TYPE;
-	} else if ("char".equals(classType)) {
-	    return Character.TYPE;
-	} else if ("short".equals(classType)) {
-	    return Short.TYPE;
-	} else if ("byte".equals(classType)) {
-	    return Byte.TYPE;
-	} else if ("float".equals(classType)) {
-	    return Float.TYPE;
-	} else if ("double".equals(classType)) {
-	    return Double.TYPE;
-	} else if ("long".equals(classType)) {
-	    return Long.TYPE;
-	}
+        if ("int".equals(classType)) {
+            return Integer.TYPE;
+        } else if ("boolean".equals(classType)) {
+            return Boolean.TYPE;
+        } else if ("char".equals(classType)) {
+            return Character.TYPE;
+        } else if ("short".equals(classType)) {
+            return Short.TYPE;
+        } else if ("byte".equals(classType)) {
+            return Byte.TYPE;
+        } else if ("float".equals(classType)) {
+            return Float.TYPE;
+        } else if ("double".equals(classType)) {
+            return Double.TYPE;
+        } else if ("long".equals(classType)) {
+            return Long.TYPE;
+        }
 
-	return null;
+        return null;
     }
 
     /**
@@ -1072,7 +998,7 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * customized through setting the default to a user defined subclass.
      */
     public static void setDefaultManager(DaoConversionManager theManager) {
-	defaultManager = theManager;
+        defaultManager = theManager;
     }
 
     /**
@@ -1083,10 +1009,10 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      */
     @SuppressWarnings("unchecked")
     public void setDefaultNullValue(Class theClass, Object theValue) {
-	if (this.defaultNullValues == null) {
-	    this.defaultNullValues = new HashMap(5);
-	}
-	getDefaultNullValues().put(theClass, theValue);
+        if (this.defaultNullValues == null) {
+            this.defaultNullValues = new HashMap(5);
+        }
+        getDefaultNullValues().put(theClass, theValue);
     }
 
     /**
@@ -1095,7 +1021,7 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * be given the specified null value.
      */
     public void setDefaultNullValues(Map defaultNullValues) {
-	this.defaultNullValues = defaultNullValues;
+        this.defaultNullValues = defaultNullValues;
     }
 
     /**
@@ -1104,8 +1030,8 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @parameter java.lang.ClassLoader
      */
     public void setLoader(ClassLoader classLoader) {
-	shouldUseClassLoaderFromCurrentThread = false;
-	loader = classLoader;
+        shouldUseClassLoaderFromCurrentThread = false;
+        loader = classLoader;
     }
 
     /**
@@ -1115,7 +1041,7 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @parameter java.lang.ClassLoader
      */
     public static void setDefaultLoader(ClassLoader classLoader) {
-	defaultLoader = classLoader;
+        defaultLoader = classLoader;
     }
 
     /**
@@ -1125,7 +1051,7 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @return java.lang.ClassLoader
      */
     public static ClassLoader getDefaultLoader() {
-	return defaultLoader;
+        return defaultLoader;
     }
 
     /**
@@ -1135,9 +1061,8 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * classNotFoundExceptions are being thrown then set this flag. In certain
      * cases it will resolve the problem
      */
-    public void setShouldUseClassLoaderFromCurrentThread(
-	    boolean useCurrentThread) {
-	this.shouldUseClassLoaderFromCurrentThread = useCurrentThread;
+    public void setShouldUseClassLoaderFromCurrentThread(boolean useCurrentThread) {
+        this.shouldUseClassLoaderFromCurrentThread = useCurrentThread;
     }
 
     /**
@@ -1148,7 +1073,7 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * cases it will resolve the problem
      */
     public boolean shouldUseClassLoaderFromCurrentThread() {
-	return this.shouldUseClassLoaderFromCurrentThread;
+        return this.shouldUseClassLoaderFromCurrentThread;
     }
 
     /**
@@ -1160,10 +1085,10 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @return - a vector of classes
      */
     public Vector getDataTypesConvertedFrom(Class javaClass) {
-	if (dataTypesConvertedFromAClass.isEmpty()) {
-	    buildDataTypesConvertedFromAClass();
-	}
-	return (Vector) dataTypesConvertedFromAClass.get(javaClass);
+        if (dataTypesConvertedFromAClass.isEmpty()) {
+            buildDataTypesConvertedFromAClass();
+        }
+        return (Vector) dataTypesConvertedFromAClass.get(javaClass);
     }
 
     /**
@@ -1175,464 +1100,450 @@ public class DaoConversionManager extends DaoCoreConversionManager implements
      * @return - a vector of classes
      */
     public Vector getDataTypesConvertedTo(Class javaClass) {
-	if (dataTypesConvertedToAClass.isEmpty()) {
-	    buildDataTypesConvertedToAClass();
-	}
-	return (Vector) dataTypesConvertedToAClass.get(javaClass);
+        if (dataTypesConvertedToAClass.isEmpty()) {
+            buildDataTypesConvertedToAClass();
+        }
+        return (Vector) dataTypesConvertedToAClass.get(javaClass);
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildNumberVec() {
-	Vector vec = new Vector();
-	vec.addElement(BigInteger.class);
-	vec.addElement(BigDecimal.class);
-	vec.addElement(Byte.class);
-	vec.addElement(Double.class);
-	vec.addElement(Float.class);
-	vec.addElement(Integer.class);
-	vec.addElement(Long.class);
-	vec.addElement(Short.class);
-	vec.addElement(Number.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(BigInteger.class);
+        vec.addElement(BigDecimal.class);
+        vec.addElement(Byte.class);
+        vec.addElement(Double.class);
+        vec.addElement(Float.class);
+        vec.addElement(Integer.class);
+        vec.addElement(Long.class);
+        vec.addElement(Short.class);
+        vec.addElement(Number.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildDateTimeVec() {
-	Vector vec = new Vector();
-	vec.addElement(java.util.Date.class);
-	vec.addElement(Timestamp.class);
-	vec.addElement(Calendar.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(java.util.Date.class);
+        vec.addElement(Timestamp.class);
+        vec.addElement(Calendar.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected void buildDataTypesConvertedFromAClass() {
-	dataTypesConvertedFromAClass.put(BigDecimal.class,
-		buildFromBigDecimalVec());
-	dataTypesConvertedFromAClass.put(BigInteger.class,
-		buildFromBigIntegerVec());
-	dataTypesConvertedFromAClass.put(Blob.class, buildFromBlobVec());
-	dataTypesConvertedFromAClass.put(Boolean.class, buildFromBooleanVec());
-	dataTypesConvertedFromAClass.put(byte[].class, buildFromByteArrayVec());
-	dataTypesConvertedFromAClass.put(Byte.class, buildFromByteVec());
-	dataTypesConvertedFromAClass
-		.put(Calendar.class, buildFromCalendarVec());
-	dataTypesConvertedFromAClass.put(Character.class,
-		buildFromCharacterVec());
-	dataTypesConvertedFromAClass.put(Clob.class, buildFromClobVec());
-	dataTypesConvertedFromAClass.put(java.sql.Date.class,
-		buildFromDateVec());
-	dataTypesConvertedFromAClass.put(Double.class, buildFromDoubleVec());
-	dataTypesConvertedFromAClass.put(Float.class, buildFromFloatVec());
-	dataTypesConvertedFromAClass.put(Integer.class, buildFromIntegerVec());
-	dataTypesConvertedFromAClass.put(Long.class, buildFromLongVec());
-	dataTypesConvertedFromAClass.put(Number.class, buildFromNumberVec());
-	dataTypesConvertedFromAClass.put(Short.class, buildFromShortVec());
-	dataTypesConvertedFromAClass.put(String.class, buildFromStringVec());
-	dataTypesConvertedFromAClass.put(Timestamp.class,
-		buildFromTimestampVec());
-	dataTypesConvertedFromAClass.put(Time.class, buildFromTimeVec());
-	dataTypesConvertedFromAClass.put(java.util.Date.class,
-		buildFromUtilDateVec());
-	dataTypesConvertedFromAClass.put(Byte[].class,
-		buildFromByteObjectArraryVec());
-	dataTypesConvertedFromAClass.put(char[].class, buildFromCharArrayVec());
-	dataTypesConvertedFromAClass.put(Character[].class,
-		buildFromCharacterArrayVec());
+        dataTypesConvertedFromAClass.put(BigDecimal.class, buildFromBigDecimalVec());
+        dataTypesConvertedFromAClass.put(BigInteger.class, buildFromBigIntegerVec());
+        dataTypesConvertedFromAClass.put(Blob.class, buildFromBlobVec());
+        dataTypesConvertedFromAClass.put(Boolean.class, buildFromBooleanVec());
+        dataTypesConvertedFromAClass.put(byte[].class, buildFromByteArrayVec());
+        dataTypesConvertedFromAClass.put(Byte.class, buildFromByteVec());
+        dataTypesConvertedFromAClass.put(Calendar.class, buildFromCalendarVec());
+        dataTypesConvertedFromAClass.put(Character.class, buildFromCharacterVec());
+        dataTypesConvertedFromAClass.put(Clob.class, buildFromClobVec());
+        dataTypesConvertedFromAClass.put(java.sql.Date.class, buildFromDateVec());
+        dataTypesConvertedFromAClass.put(Double.class, buildFromDoubleVec());
+        dataTypesConvertedFromAClass.put(Float.class, buildFromFloatVec());
+        dataTypesConvertedFromAClass.put(Integer.class, buildFromIntegerVec());
+        dataTypesConvertedFromAClass.put(Long.class, buildFromLongVec());
+        dataTypesConvertedFromAClass.put(Number.class, buildFromNumberVec());
+        dataTypesConvertedFromAClass.put(Short.class, buildFromShortVec());
+        dataTypesConvertedFromAClass.put(String.class, buildFromStringVec());
+        dataTypesConvertedFromAClass.put(Timestamp.class, buildFromTimestampVec());
+        dataTypesConvertedFromAClass.put(Time.class, buildFromTimeVec());
+        dataTypesConvertedFromAClass.put(java.util.Date.class, buildFromUtilDateVec());
+        dataTypesConvertedFromAClass.put(Byte[].class, buildFromByteObjectArraryVec());
+        dataTypesConvertedFromAClass.put(char[].class, buildFromCharArrayVec());
+        dataTypesConvertedFromAClass.put(Character[].class, buildFromCharacterArrayVec());
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromBooleanVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Boolean.class);
-	vec.addElement(Integer.class);
-	vec.addElement(Long.class);
-	vec.addElement(Short.class);
-	vec.addElement(Number.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	vec.addElement(boolean.class);
-	vec.addElement(int.class);
-	vec.addElement(long.class);
-	vec.addElement(short.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Boolean.class);
+        vec.addElement(Integer.class);
+        vec.addElement(Long.class);
+        vec.addElement(Short.class);
+        vec.addElement(Number.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        vec.addElement(boolean.class);
+        vec.addElement(int.class);
+        vec.addElement(long.class);
+        vec.addElement(short.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromNumberVec() {
-	Vector vec = buildNumberVec();
-	vec.addElement(String.class);
-	vec.addElement(Character.class);
-	vec.addElement(Boolean.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	vec.addElement(char.class);
-	vec.addElement(int.class);
-	vec.addElement(double.class);
-	vec.addElement(float.class);
-	vec.addElement(long.class);
-	vec.addElement(short.class);
-	vec.addElement(byte.class);
-	vec.addElement(boolean.class);
-	return vec;
+        Vector vec = buildNumberVec();
+        vec.addElement(String.class);
+        vec.addElement(Character.class);
+        vec.addElement(Boolean.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        vec.addElement(char.class);
+        vec.addElement(int.class);
+        vec.addElement(double.class);
+        vec.addElement(float.class);
+        vec.addElement(long.class);
+        vec.addElement(short.class);
+        vec.addElement(byte.class);
+        vec.addElement(boolean.class);
+        return vec;
     }
 
     protected Vector buildFromBigDecimalVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromBigIntegerVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromIntegerVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromFloatVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromDoubleVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromShortVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     protected Vector buildFromByteVec() {
-	return buildFromNumberVec();
+        return buildFromNumberVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromLongVec() {
-	Vector vec = buildFromNumberVec();
-	vec.addAll(buildDateTimeVec());
-	vec.addElement(java.sql.Date.class);
-	vec.addElement(Time.class);
-	return vec;
+        Vector vec = buildFromNumberVec();
+        vec.addAll(buildDateTimeVec());
+        vec.addElement(java.sql.Date.class);
+        vec.addElement(Time.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromStringVec() {
-	Vector vec = buildFromLongVec();
-	vec.addElement(Byte[].class);
-	vec.addElement(byte[].class);
-	vec.addElement(Clob.class);
-	return vec;
+        Vector vec = buildFromLongVec();
+        vec.addElement(Byte[].class);
+        vec.addElement(byte[].class);
+        vec.addElement(Clob.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromCharacterVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Boolean.class);
-	vec.addElement(Character[].class);
-	vec.addElement(Character.class);
-	vec.addElement(char[].class);
-	vec.addElement(char.class);
-	vec.addElement(boolean.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Boolean.class);
+        vec.addElement(Character[].class);
+        vec.addElement(Character.class);
+        vec.addElement(char[].class);
+        vec.addElement(char.class);
+        vec.addElement(boolean.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromByteArrayVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(byte[].class);
-	vec.addElement(Byte[].class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(byte[].class);
+        vec.addElement(Byte[].class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromClobVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromBlobVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Byte[].class);
-	vec.addElement(byte[].class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Byte[].class);
+        vec.addElement(byte[].class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromUtilDateVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(java.sql.Date.class);
-	vec.addElement(Time.class);
-	vec.addElement(long.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(java.sql.Date.class);
+        vec.addElement(Time.class);
+        vec.addElement(long.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     protected Vector buildFromTimestampVec() {
-	return buildFromUtilDateVec();
+        return buildFromUtilDateVec();
     }
 
     protected Vector buildFromCalendarVec() {
-	return buildFromUtilDateVec();
+        return buildFromUtilDateVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromDateVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(java.sql.Date.class);
-	vec.addElement(long.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(java.sql.Date.class);
+        vec.addElement(long.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromTimeVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(Time.class);
-	vec.addElement(long.class);
-	vec.addElement(Character[].class);
-	vec.addElement(char[].class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(Time.class);
+        vec.addElement(long.class);
+        vec.addElement(Character[].class);
+        vec.addElement(char[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromByteObjectArraryVec() {
-	Vector vec = new Vector();
-	vec.addElement(Blob.class);
-	vec.addElement(byte[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(Blob.class);
+        vec.addElement(byte[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromCharArrayVec() {
-	Vector vec = new Vector();
-	vec.addElement(Clob.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(Clob.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildFromCharacterArrayVec() {
-	Vector vec = new Vector();
-	vec.addElement(Clob.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(Clob.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected void buildDataTypesConvertedToAClass() {
-	dataTypesConvertedToAClass
-		.put(BigDecimal.class, buildToBigDecimalVec());
-	dataTypesConvertedToAClass
-		.put(BigInteger.class, buildToBigIntegerVec());
-	dataTypesConvertedToAClass.put(Boolean.class, buildToBooleanVec());
-	dataTypesConvertedToAClass.put(Byte.class, buildToByteVec());
-	dataTypesConvertedToAClass.put(byte[].class, buildToByteArrayVec());
-	dataTypesConvertedToAClass.put(Byte[].class,
-		buildToByteObjectArrayVec());
-	dataTypesConvertedToAClass.put(Calendar.class, buildToCalendarVec());
-	dataTypesConvertedToAClass.put(Character.class, buildToCharacterVec());
-	dataTypesConvertedToAClass.put(Character[].class,
-		buildToCharacterArrayVec());
-	dataTypesConvertedToAClass.put(char[].class, buildToCharArrayVec());
-	dataTypesConvertedToAClass.put(java.sql.Date.class, buildToDateVec());
-	dataTypesConvertedToAClass.put(Double.class, buildToDoubleVec());
-	dataTypesConvertedToAClass.put(Float.class, buildToFloatVec());
-	dataTypesConvertedToAClass.put(Integer.class, buildToIntegerVec());
-	dataTypesConvertedToAClass.put(Long.class, buildToLongVec());
-	dataTypesConvertedToAClass.put(Number.class, buildToNumberVec());
-	dataTypesConvertedToAClass.put(Short.class, buildToShortVec());
-	dataTypesConvertedToAClass.put(String.class, buildToStringVec());
-	dataTypesConvertedToAClass.put(Timestamp.class, buildToTimestampVec());
-	dataTypesConvertedToAClass.put(Time.class, buildToTimeVec());
-	dataTypesConvertedToAClass.put(java.util.Date.class,
-		buildToUtilDateVec());
-	dataTypesConvertedToAClass.put(Clob.class, buildToClobVec());
-	dataTypesConvertedToAClass.put(Blob.class, buildToBlobVec());
+        dataTypesConvertedToAClass.put(BigDecimal.class, buildToBigDecimalVec());
+        dataTypesConvertedToAClass.put(BigInteger.class, buildToBigIntegerVec());
+        dataTypesConvertedToAClass.put(Boolean.class, buildToBooleanVec());
+        dataTypesConvertedToAClass.put(Byte.class, buildToByteVec());
+        dataTypesConvertedToAClass.put(byte[].class, buildToByteArrayVec());
+        dataTypesConvertedToAClass.put(Byte[].class, buildToByteObjectArrayVec());
+        dataTypesConvertedToAClass.put(Calendar.class, buildToCalendarVec());
+        dataTypesConvertedToAClass.put(Character.class, buildToCharacterVec());
+        dataTypesConvertedToAClass.put(Character[].class, buildToCharacterArrayVec());
+        dataTypesConvertedToAClass.put(char[].class, buildToCharArrayVec());
+        dataTypesConvertedToAClass.put(java.sql.Date.class, buildToDateVec());
+        dataTypesConvertedToAClass.put(Double.class, buildToDoubleVec());
+        dataTypesConvertedToAClass.put(Float.class, buildToFloatVec());
+        dataTypesConvertedToAClass.put(Integer.class, buildToIntegerVec());
+        dataTypesConvertedToAClass.put(Long.class, buildToLongVec());
+        dataTypesConvertedToAClass.put(Number.class, buildToNumberVec());
+        dataTypesConvertedToAClass.put(Short.class, buildToShortVec());
+        dataTypesConvertedToAClass.put(String.class, buildToStringVec());
+        dataTypesConvertedToAClass.put(Timestamp.class, buildToTimestampVec());
+        dataTypesConvertedToAClass.put(Time.class, buildToTimeVec());
+        dataTypesConvertedToAClass.put(java.util.Date.class, buildToUtilDateVec());
+        dataTypesConvertedToAClass.put(Clob.class, buildToClobVec());
+        dataTypesConvertedToAClass.put(Blob.class, buildToBlobVec());
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildAllTypesToAClassVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Integer.class);
-	vec.addElement(java.util.Date.class);
-	vec.addElement(java.sql.Date.class);
-	vec.addElement(Time.class);
-	vec.addElement(Timestamp.class);
-	vec.addElement(Calendar.class);
-	vec.addElement(Character.class);
-	vec.addElement(Double.class);
-	vec.addElement(Float.class);
-	vec.addElement(Long.class);
-	vec.addElement(Short.class);
-	vec.addElement(Byte.class);
-	vec.addElement(BigInteger.class);
-	vec.addElement(BigDecimal.class);
-	vec.addElement(Number.class);
-	vec.addElement(Boolean.class);
-	vec.addElement(Character[].class);
-	vec.addElement(Blob.class);
-	vec.addElement(Clob.class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Integer.class);
+        vec.addElement(java.util.Date.class);
+        vec.addElement(java.sql.Date.class);
+        vec.addElement(Time.class);
+        vec.addElement(Timestamp.class);
+        vec.addElement(Calendar.class);
+        vec.addElement(Character.class);
+        vec.addElement(Double.class);
+        vec.addElement(Float.class);
+        vec.addElement(Long.class);
+        vec.addElement(Short.class);
+        vec.addElement(Byte.class);
+        vec.addElement(BigInteger.class);
+        vec.addElement(BigDecimal.class);
+        vec.addElement(Number.class);
+        vec.addElement(Boolean.class);
+        vec.addElement(Character[].class);
+        vec.addElement(Blob.class);
+        vec.addElement(Clob.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToBigDecimalVec() {
-	Vector vec = buildNumberVec();
-	vec.addElement(String.class);
-	return vec;
+        Vector vec = buildNumberVec();
+        vec.addElement(String.class);
+        return vec;
     }
 
     protected Vector buildToBigIntegerVec() {
-	return buildToBigDecimalVec();
+        return buildToBigDecimalVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToBooleanVec() {
-	Vector vec = buildToBigDecimalVec();
-	vec.addElement(Character.class);
-	vec.addElement(Boolean.class);
-	return vec;
+        Vector vec = buildToBigDecimalVec();
+        vec.addElement(Character.class);
+        vec.addElement(Boolean.class);
+        return vec;
     }
 
     protected Vector buildToByteVec() {
-	return buildToBigDecimalVec();
+        return buildToBigDecimalVec();
     }
 
     protected Vector buildToDoubleVec() {
-	return buildToBigDecimalVec();
+        return buildToBigDecimalVec();
     }
 
     protected Vector buildToFloatVec() {
-	return buildToBigDecimalVec();
+        return buildToBigDecimalVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToIntegerVec() {
-	Vector vec = buildToBigDecimalVec();
-	vec.addElement(Boolean.class);
-	return vec;
+        Vector vec = buildToBigDecimalVec();
+        vec.addElement(Boolean.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToLongVec() {
-	Vector vec = buildToIntegerVec();
-	vec.addElement(Calendar.class);
-	vec.addElement(java.util.Date.class);
-	return vec;
+        Vector vec = buildToIntegerVec();
+        vec.addElement(Calendar.class);
+        vec.addElement(java.util.Date.class);
+        return vec;
     }
 
     protected Vector buildToNumberVec() {
-	return buildToIntegerVec();
+        return buildToIntegerVec();
     }
 
     protected Vector buildToShortVec() {
-	return buildToIntegerVec();
+        return buildToIntegerVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToByteArrayVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(Blob.class);
-	vec.addElement(byte[].class);
-	vec.addElement(Byte[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(Blob.class);
+        vec.addElement(byte[].class);
+        vec.addElement(Byte[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToByteObjectArrayVec() {
-	Vector vec = buildToByteArrayVec();
-	vec.addElement(Byte[].class);
-	return vec;
+        Vector vec = buildToByteArrayVec();
+        vec.addElement(Byte[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToCharacterVec() {
-	Vector vec = buildToBigDecimalVec();
-	vec.addElement(Character.class);
-	return vec;
+        Vector vec = buildToBigDecimalVec();
+        vec.addElement(Character.class);
+        return vec;
     }
 
     protected Vector buildToCharacterArrayVec() {
-	return buildAllTypesToAClassVec();
+        return buildAllTypesToAClassVec();
     }
 
     protected Vector buildToCharArrayVec() {
-	return buildAllTypesToAClassVec();
+        return buildAllTypesToAClassVec();
     }
 
     protected Vector buildToStringVec() {
-	return buildAllTypesToAClassVec();
+        return buildAllTypesToAClassVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToCalendarVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(java.sql.Date.class);
-	vec.addElement(Time.class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(java.sql.Date.class);
+        vec.addElement(Time.class);
+        return vec;
     }
 
     protected Vector buildToTimestampVec() {
-	return buildToCalendarVec();
+        return buildToCalendarVec();
     }
 
     protected Vector buildToUtilDateVec() {
-	return buildToCalendarVec();
+        return buildToCalendarVec();
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToDateVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(java.sql.Date.class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(java.sql.Date.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToTimeVec() {
-	Vector vec = buildDateTimeVec();
-	vec.addElement(String.class);
-	vec.addElement(Long.class);
-	vec.addElement(Time.class);
-	return vec;
+        Vector vec = buildDateTimeVec();
+        vec.addElement(String.class);
+        vec.addElement(Long.class);
+        vec.addElement(Time.class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToBlobVec() {
-	Vector vec = new Vector();
-	vec.addElement(Byte[].class);
-	vec.addElement(byte[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(Byte[].class);
+        vec.addElement(byte[].class);
+        return vec;
     }
 
     @SuppressWarnings("unchecked")
     protected Vector buildToClobVec() {
-	Vector vec = new Vector();
-	vec.addElement(String.class);
-	vec.addElement(char[].class);
-	vec.addElement(Character[].class);
-	return vec;
+        Vector vec = new Vector();
+        vec.addElement(String.class);
+        vec.addElement(char[].class);
+        vec.addElement(Character[].class);
+        return vec;
     }
 }

@@ -8,65 +8,64 @@ public class JPAAnnotationCollectionMetadata implements Metadata {
 
     private final Class<?> collectionClass;
 
-    public JPAAnnotationCollectionMetadata(Class<?> klass,
-	    Class<?> collectionClass) {
-	this.classMetadata = JPAAnnotationMetadata.getMetadata(klass);
-	this.collectionClass = collectionClass;
+    public JPAAnnotationCollectionMetadata(Class<?> klass, Class<?> collectionClass) {
+        this.classMetadata = JPAAnnotationMetadata.getMetadata(klass);
+        this.collectionClass = collectionClass;
     }
 
     public Class<?> getCollectionClass() {
-	return collectionClass;
+        return collectionClass;
     }
 
     public String getIdProperty() {
-	return classMetadata.getIdProperty();
+        return classMetadata.getIdProperty();
     }
 
     public Metadata getIdType() {
-	return classMetadata.getIdType();
+        return classMetadata.getIdType();
     }
 
     public Serializable getIdValue(Object object) {
-	return classMetadata.getIdValue(object);
+        return classMetadata.getIdValue(object);
     }
 
     public Class<?> getJavaClass() {
-	return classMetadata.getJavaClass();
+        return classMetadata.getJavaClass();
     }
 
     public String getEntityName() {
-	return classMetadata.getEntityName();
+        return classMetadata.getEntityName();
     }
 
     public String[] getProperties() {
-	return classMetadata.getProperties();
+        return classMetadata.getProperties();
     }
 
     public Metadata getPropertyType(String property) {
-	return classMetadata.getPropertyType(property);
+        return classMetadata.getPropertyType(property);
     }
 
     public Object getPropertyValue(Object object, String property) {
-	return classMetadata.getPropertyValue(object, property);
+        return classMetadata.getPropertyValue(object, property);
     }
 
     public boolean isCollection() {
-	return true;
+        return true;
     }
 
     public boolean isEmeddable() {
-	return classMetadata.isEmeddable();
+        return classMetadata.isEmeddable();
     }
 
     public boolean isEntity() {
-	return classMetadata.isEntity();
+        return classMetadata.isEntity();
     }
 
     public boolean isNumeric() {
-	return classMetadata.isNumeric();
+        return classMetadata.isNumeric();
     }
 
     public boolean isString() {
-	return classMetadata.isString();
+        return classMetadata.isString();
     }
 }

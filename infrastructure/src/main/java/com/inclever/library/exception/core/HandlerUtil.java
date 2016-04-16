@@ -7,8 +7,7 @@ package com.inclever.library.exception.core;
 public class HandlerUtil {
 
     private static HandlerHelper helper = new HandlerHelper();
-    
-    
+
     private HandlerUtil() {
     }
 
