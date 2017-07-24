@@ -1,46 +1,54 @@
 package com.inclever.library.configuration;
 
-import java.util.List;
-
 public class LibraryConfiguration {
-    /**
-     * The id to use when retreiving using spring
-     */
-    public static final String BEAN_ID = "configId";
+	/**
+	 * The id to use when retrieving using spring
+	 */
+	public static final String BEAN_ID = "configId";
 
-    private boolean isAuditOn = false;
+	/**
+	 * 
+	 */
+	private boolean isAuditOn = false;
 
-    /**
-     * Holds a list of Message Bundles
-     */
-    private List<String> loggingMessagesBundles = null;
+	/**
+	 * 
+	 */
+	private boolean isEnableSOP = false;
 
-    /**
-     * Returns the list of logging Message Bundles.
-     * 
-     * @return List Returns the m_loggingMessagesBundles.
-     */
-    public List<String> getLoggingMessagesBundles() {
-        return loggingMessagesBundles;
-    }
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isAuditOn() {
+		return isAuditOn;
+	}
 
-    /**
-     * Sets the List of Logging Message Bundles
-     * 
-     * @param loggingMessagesBundles
-     *            The loggingMessagesBundles to set.
-     */
-    public void setLoggingMessagesBundles(List<String> loggingMessagesBundles) {
-        this.loggingMessagesBundles = loggingMessagesBundles;
-    }
+	/**
+	 * 
+	 * @param isAuditOn
+	 */
+	public void setAuditOn(String isAuditOn) {
+		if (isAuditOn != null && !isAuditOn.isEmpty()) {
+			this.isAuditOn = Boolean.parseBoolean(isAuditOn);
+		}
+	}
 
-    public boolean isAuditOn() {
-        return isAuditOn;
-    }
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isEnableSOP() {
+		return isEnableSOP;
+	}
 
-    public void setAuditOn(String isAuditOn) {
-        if (isAuditOn != null && !isAuditOn.isEmpty()) {
-            this.isAuditOn = Boolean.parseBoolean(isAuditOn);
-        }
-    }
+	/**
+	 * 
+	 * @param isDisableSOP
+	 */
+	public void setEnableSOP(String isEnableSOP) {
+		if (isEnableSOP != null && !isEnableSOP.isEmpty()) {
+			this.isEnableSOP = Boolean.parseBoolean(isEnableSOP);
+		}
+	}
 }

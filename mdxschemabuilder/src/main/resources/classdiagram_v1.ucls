@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.13" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <package id="1" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="52" width="463" x="237" y="129"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="2" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="513" x="237" y="221"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="3" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.dialet.util.mondrian" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/dialet/util/mondrian" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="52" width="531" x="433" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <package id="4" language="java" name="com.inclever.library.olapschemabuilder.core.api" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/api" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="52" width="352" x="41" y="37"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <dependency id="5">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="6">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="7">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="8">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

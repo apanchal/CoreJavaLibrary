@@ -6,12 +6,25 @@
 	<version>2.1-SNAPSHOT</version>
 
 	<properties>
-	   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <sonar.language>java</sonar.language>
-        <sonar.host.url>http://localhost:9000</sonar.host.url>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<sonar.language>java</sonar.language>
+		<sonar.host.url>http://localhost:9000</sonar.host.url>
 		<spring.version>4.2.4.RELEASE</spring.version>
+		<inclever.version>2.1-SNAPSHOT</inclever.version>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
 	</properties>
 	<dependencies>
+		<dependency>
+			<groupId>com.inclever.library</groupId>
+			<artifactId>Common-Utility</artifactId>
+			<version>${inclever.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.inclever.library</groupId>
+			<artifactId>Infrastructure</artifactId>
+			<version>${inclever.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -54,9 +67,19 @@
 			<artifactId>aspectjrt</artifactId>
 			<version>1.8.8</version>
 		</dependency>
-
-
-
-
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>

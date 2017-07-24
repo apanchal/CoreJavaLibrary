@@ -1,5 +1,7 @@
 package com.inclever.library.logging;
 
+import java.io.Serializable;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
@@ -7,69 +9,79 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.inclever.library.configuration.LibraryConfiguration;
 
-public class LogManagerFactory {
+public class LogManagerFactory implements Serializable {
 
-    /**
-     * The LogManagerFactory private instance
-     */
-    private static LogManagerFactory logManagerFactory = null;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * Spring Contexts
-     */
-    private static final String[] CONTEXTS = { "inclever-config.xml" };
+	/**
+	 * The LogManagerFactory private instance
+	 */
+	private static LogManagerFactory logManagerFactory = null;
 
-    /**
-     * The Core Configuration instance
-     */
-    private LibraryConfiguration coreConfiguration = null;
+	/**
+	 * Spring Contexts
+	 */
+	private static final String[] CONTEXTS = { "inclever-config.xml" };
 
-    static {
-        logManagerFactory = new LogManagerFactory();
-        System.out.println("*** Blocking standard System.out. *** ");
-        InterceptionManager.getInstance().intercept();
-    }
+	/**
+	 * The Core Configuration instance
+	 */
+	private LibraryConfiguration coreConfiguration = null;
 
-    /**
-     * Returns LogManagerfactory instance
-     * 
-     * @return LogManagerFactory The LogManagerfactory static instance
-     */
-    public static LogManagerFactory getInstance() {
-        if (logManagerFactory == null) {
-            logManagerFactory = new LogManagerFactory();
-        }
-        return logManagerFactory;
-    }
+	static {
+		logManagerFactory = new LogManagerFactory();
+		System.out.println("*** Blocking standard System.out. *** ");
+		InterceptionManager.getInstance().intercept();
+	}
 
-    /**
-     * This constructor will use the DynamicResourceBundle to get the type of
-     * logger that we are using
-     */
-    @SuppressWarnings("resource")
-    private LogManagerFactory() {
+	/**
+	 * Returns LogManagerfactory instance
+	 * 
+	 * @return LogManagerFactory The LogManagerfactory static instance
+	 */
+	public static LogManagerFactory getInstance() {
+		if (logManagerFactory == null) {
+			logManagerFactory = new LogManagerFactory();
+		}
+		return logManagerFactory;
+	}
 
-        // read configuration file from classpath.
-        ApplicationContext context = null;
-        try {
-            System.out.println("Loading Core Configuration...");
-            context = new ClassPathXmlApplicationContext(CONTEXTS, true);
+	/**
+	 * This constructor will use the DynamicResourceBundle to get the type of
+	 * logger that we are using
+	 */
 
-            coreConfiguration = (LibraryConfiguration) context.getBean(LibraryConfiguration.BEAN_ID,
-                    LibraryConfiguration.class);
-        } catch (Exception exception) {
-            throw new RuntimeException("Configuration File 'inclever-config.xml' is not found in classpath.",
-                    exception);
-        }
+	@SuppressWarnings("resource")
+	private LogManagerFactory() {
 
-    }
+		// read configuration file from classpath.
+		ApplicationContext context = null;
+		try {
+			System.out.println("Loading Core Configuration...");
+			context = new ClassPathXmlApplicationContext(CONTEXTS, true);
 
-    public Logger getLogger(Class<?> loggingClass) {
-        return LoggerFactory.getLogger(loggingClass);
-    }
+			coreConfiguration = (LibraryConfiguration) context.getBean(LibraryConfiguration.BEAN_ID,
+					LibraryConfiguration.class);
+		} catch (Exception exception) {
+			throw new RuntimeException("Configuration File 'inclever-config.xml' is not found in classpath.",
+					exception);
+		}
 
-    public LibraryConfiguration getCoreConfiguration() {
-        return coreConfiguration;
-    }
+	}
+
+	public Logger getLogger(Class<?> loggingClass) {
+		return LoggerFactory.getLogger(loggingClass);
+	}
+
+	public LibraryConfiguration getCoreConfiguration() {
+		return coreConfiguration;
+	}
+
+	protected Object readResolve() {
+		return logManagerFactory;
+	}
 
 }

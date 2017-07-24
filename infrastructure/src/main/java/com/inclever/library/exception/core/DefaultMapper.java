@@ -26,7 +26,8 @@ public class DefaultMapper implements HandlerMapper {
         handling = new Class[] { Throwable.class };
     }
 
-    public DefaultMapper(Handler defaultHandler, Class<? extends Throwable>... handling) {
+    @SafeVarargs
+	public DefaultMapper(Handler defaultHandler, Class<? extends Throwable>... handling) {
         this();
         if (handling != null && handling.length > 0) {
             this.handling = handling;

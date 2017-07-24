@@ -111,7 +111,6 @@ public class HandlerContextPopulator {
     }
 
     // priority for annotation parameters --> handler, mapper
-    @SuppressWarnings("unchecked")
     private HandlerMapper createMapper(ExceptionHandler annotation) {
         HandlerMapper result;
 

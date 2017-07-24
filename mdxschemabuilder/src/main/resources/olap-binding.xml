@@ -1,0 +1,615 @@
+<binding>
+	<mapping name="Schema"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Schema">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="measuresCaption" field="measuresCaption"
+			usage="optional" />
+		<value style="attribute" name="defaultRole" field="defaultRole"
+			usage="optional" />
+		<collection field="parameters"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Parameter" />
+		<collection field="dimensions"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Dimension" />
+		<collection field="cubes"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Cube" />
+
+		<collection field="virtualCubes"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCube"
+			usage="optional" />
+
+		<collection field="namedSets"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NamedSet" />
+		<collection field="userDefinedFunctions"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.UserDefinedFunction" />
+		<collection field="roles"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Role" />
+	</mapping>
+
+	<!-- Parameters -->
+	<mapping name="Parameter"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Parameter">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="description" field="description"
+			usage="optional" />
+		<value style="attribute" name="type" field="type" usage="optional"
+			enum-value-method="getParameterType" />
+		<value style="attribute" name="modifiable" field="modifiable"
+			usage="optional" />
+		<value style="attribute" name="defaultValue" field="defaultValue"
+			usage="optional" />
+	</mapping>
+
+	<!-- =========== Dimensions Hierarchy =========== -->
+	<!-- CubeDimension -->
+	<mapping
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension"
+		abstract="true">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="foreignKey" field="foreignKey"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+	</mapping>
+
+	<!-- Dimension -->
+	<mapping name="Dimension"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Dimension"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension" />
+
+		<value style="attribute" name="type" field="type" usage="optional"
+			enum-value-method="getDimensionType" />
+
+		<value style="attribute" name="usagePrefix" field="usagePrefix"
+			usage="optional" />
+		<collection field="hierarchies"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Hierarchy" />
+	</mapping>
+
+	<!-- ============================================ -->
+	<!-- Agg. Hierarchy Classes -->
+	<!-- ============================================ -->
+	<!-- AggTable -->
+	<mapping abstract="true"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable">
+		<value style="attribute" name="ignorecase" field="ignorecase"
+			usage="optional" />
+		<structure field="factCount" />
+		<collection field="ignoreColumns" usage="optional"
+			create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggColumnName"
+				name="AggIgnoreColumn">
+				<value style="attribute" name="column" field="column" usage="optional" />
+			</structure>
+		</collection>
+		<collection field="foreignKeys" usage="optional"
+			create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggForeignKey"
+				name="AggForeignKey">
+				<value style="attribute" name="factColumn" field="factColumn"
+					usage="optional" />
+				<value style="attribute" name="aggColumn" field="aggColumn"
+					usage="optional" />
+			</structure>
+		</collection>
+		<collection field="measures" usage="optional" create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggMeasure"
+				name="AggMeasure">
+				<value style="attribute" name="name" field="name" usage="optional" />
+				<value style="attribute" name="column" field="column" usage="optional" />
+			</structure>
+		</collection>
+		<collection field="levels" usage="optional" create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggLevel"
+				name="AggLevel">
+				<value style="attribute" name="name" field="name" usage="optional" />
+				<value style="attribute" name="column" field="column" usage="optional" />
+			</structure>
+		</collection>
+	</mapping>
+
+	<!-- AggName -->
+	<mapping name="AggName"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggName"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable" />
+	</mapping>
+
+	<!-- AggPattern -->
+	<mapping name="AggPattern"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggPattern"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable">
+		<value style="attribute" name="pattern" field="pattern" usage="required" />
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable" />
+
+		<collection field="excludes"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggExclude"
+			usage="optional" />
+	</mapping>
+
+	<!-- AggColumnName -->
+	<mapping
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggColumnName"
+		abstract="true">
+		<value style="attribute" name="column" field="column" usage="required" />
+	</mapping>
+
+	<!-- AggFactCount -->
+	<mapping name="AggFactCount"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggFactCount"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggColumnName">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggColumnName"></structure>
+	</mapping>
+
+	<!-- AggExclude -->
+	<mapping name="AggExclude"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggExclude">
+		<value style="attribute" name="pattern" field="pattern" usage="optional" />
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="ignorecase" field="ignorecase"
+			usage="optional" />
+	</mapping>
+
+	<!-- Cube -->
+	<mapping name="Cube"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Cube">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="defaultMeasure" field="defaultMeasure"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+		<value style="attribute" name="cache" field="cache" usage="optional" />
+		<value style="attribute" name="enabled" field="enabled" usage="optional" />
+
+		<structure field="fact" usage="optional"></structure>
+
+		<collection field="dimensions"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension" />
+		<collection field="measures"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Measure" />
+		<collection field="calculatedMembers"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMember" />
+		<collection field="namedSets"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NamedSet" />
+	</mapping>
+
+	<!-- ============================================= -->
+	<!-- DimensionUsage -->
+	<!-- ============================================= -->
+	<mapping name="dimensionUsage"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.DimensionUsage"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension">
+		<value style="attribute" name="source" field="source" usage="required" />
+		<value style="attribute" name="level" field="level" usage="optional" />
+		<value style="attribute" name="usagePrefix" field="usagePrefix"
+			usage="optional" />
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension" />
+	</mapping>
+
+	<!-- Hierarchy -->
+	<mapping name="Hierarchy"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Hierarchy">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="hasAll" field="hasAll" usage="required" />
+		<value style="attribute" name="allMemberName" field="allMemberName"
+			usage="optional" />
+		<value style="attribute" name="allMemberCaption" field="allMemberCaption"
+			usage="optional" />
+		<value style="attribute" name="allLevelName" field="allLevelName"
+			usage="optional" />
+		<value style="attribute" name="primaryKey" field="primaryKey"
+			usage="optional" />
+		<value style="attribute" name="primaryKeyTable" field="primaryKeyTable"
+			usage="optional" />
+		<value style="attribute" name="defaultMember" field="defaultMember"
+			usage="optional" />
+		<value style="attribute" name="memberReaderClass" field="memberReaderClass"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+
+		<structure field="relation" usage="optional"></structure>
+
+		<collection field="levels"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Level" />
+		<collection field="memberReaderParameters" usage="optional"
+			create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MemberReaderParameter"
+				name="memberReaderParameter">
+				<value style="element" name="name" field="name" usage="optional" />
+				<value style="element" name="value" field="value" usage="optional" />
+			</structure>
+		</collection>
+	</mapping>
+
+	<!-- =========== Cube Fact Hierarchy =========== -->
+	<!-- Main fact Root -->
+
+	<mapping abstract="true"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.RelationOrJoin">
+	</mapping>
+
+	<mapping abstract="true"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Relation"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.RelationOrJoin">
+	</mapping>
+
+	<mapping name="SQL"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SQL">
+		<value style="attribute" name="dialect" field="dialetString"
+			usage="optional" />
+		<value style="text" field="cdata" usage="optional" />
+	</mapping>
+
+	<!-- Join -->
+	<mapping name="Join"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Join"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.RelationOrJoin">
+		<value style="attribute" name="leftAlias" field="leftAlias"
+			usage="optional" />
+		<value style="attribute" name="leftKey" field="leftKey" usage="optional" />
+		<value style="attribute" name="rightAlias" field="rightAlias"
+			usage="optional" />
+		<value style="attribute" name="rightKey" field="rightKey" usage="optional" />
+		<structure field="left" usage="required" />
+		<structure field="right" usage="required" />
+	</mapping>
+
+	<!-- View -->
+	<mapping name="View"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.View"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Relation">
+		<value style="attribute" name="alias" field="alias" usage="optional" />
+		<collection field="selects" usage="optional" create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SQL"
+				name="SQL">
+				<value style="attribute" name="dialect" field="dialetString"
+					usage="optional" />
+				<value style="text" field="cdata" usage="optional" />
+			</structure>
+		</collection>
+	</mapping>
+
+	<!-- Table -->
+	<mapping name="Table"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Table"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Relation">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="schema" field="schema" usage="optional" />
+		<value style="attribute" name="alias" field="alias" usage="optional" />
+		<structure field="filter" usage="optional" name="filter">
+			<value style="attribute" name="dialect" field="dialect" usage="optional" />
+			<value style="attribute" name="cdata" field="cdata" usage="optional" />
+		</structure>
+		<!-- collection field="aggExcludes" usage="optional" create-type="java.util.ArrayList"> 
+			<structure type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggExclude" 
+			name="AggExclude"> <value style="attribute" name="pattern" field="pattern" 
+			usage="optional" /> <value style="attribute" name="name" field="name" usage="optional" 
+			/> <value style="attribute" name="ignorecase" field="ignorecase" usage="optional" 
+			/> </structure> </collection -->
+		<collection field="aggExcludes"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggExclude" />
+
+		<collection field="aggTables"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable" />
+	</mapping>
+	<!-- Level -->
+
+	<mapping name="Level"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Level">
+		<value style="attribute" name="approxRowCount" field="approxRowCount"
+			usage="optional" />
+		<value style="attribute" name="name" field="levelName" usage="optional" />
+		<value style="attribute" name="table" field="table" usage="optional" />
+		<value style="attribute" name="column" field="column" usage="optional" />
+		<value style="attribute" name="nameColumn" field="nameColumn"
+			usage="optional" />
+		<value style="attribute" name="ordinalColumn" field="ordinalColumn"
+			usage="optional" />
+		<value style="attribute" name="parentColumn" field="parentColumn"
+			usage="optional" />
+		<value style="attribute" name="nullParentValue" field="nullParentValue"
+			usage="optional" />
+		<value style="attribute" name="type" field="type" usage="optional"
+			enum-value-method="getType" />
+		<value style="attribute" name="uniqueMembers" field="uniqueMembers"
+			usage="optional" />
+		<value style="attribute" name="levelType" field="levelType"
+			usage="optional" enum-value-method="getLevelType" />
+		<value style="attribute" name="hideMemberIf" field="hideMemberIf"
+			usage="optional" />
+		<value style="attribute" name="formatter" field="formatter"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+		<value style="attribute" name="captionColumn" field="captionColumn"
+			usage="optional" />
+		<structure field="keyExp" usage="optional" />
+		<structure field="nameExp" usage="optional" />
+		<structure field="ordinalExp" usage="optional" />
+		<structure field="parentExp" usage="optional" />
+		<structure field="closure" usage="optional" name="Closure">
+			<value style="attribute" name="parentColumn" field="parentColumn"
+				usage="optional" />
+			<value style="attribute" name="childColumn" field="childColumn"
+				usage="optional" />
+
+			<structure field="table" usage="optional"></structure>
+			<!-- structure map-as="FactTable" field="table" usage="optional" name="Table" 
+				/ -->
+		</structure>
+
+		<collection field="properties"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Property" />
+
+	</mapping>
+
+	<!-- Level Property -->
+	<mapping name="Property"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Property">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="column" field="column" usage="optional" />
+		<value style="attribute" name="type" field="type" usage="optional"
+			enum-value-method="getType" />
+		<value style="attribute" name="formatter" field="formatter"
+			usage="optional" />
+	</mapping>
+
+	<!-- =============== ExpressionView Class Hierarchy Mapping =============== -->
+	<!-- ExpressionView -->
+	<mapping
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"
+		abstract="true">
+		<collection field="expressions" usage="optional"
+			create-type="java.util.ArrayList">
+			<structure
+				type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SQL"
+				name="SQL">
+				<value style="attribute" name="dialect" field="dialetString"
+					usage="optional" />
+				<value style="text" field="cdata" usage="optional" />
+			</structure>
+		</collection>
+	</mapping>
+
+	<!-- KeyEpression -->
+	<mapping name="KeyExpression"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.KeyExpression"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"></structure>
+	</mapping>
+
+	<!-- NameExpression -->
+	<mapping name="NameExpression"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NameExpression"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"></structure>
+	</mapping>
+
+	<!-- OrdinalExpression -->
+	<mapping name="OrdinalExpression"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.OrdinalExpression"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"></structure>
+	</mapping>
+
+	<!-- ParentExpression -->
+	<mapping name="ParentExpression"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ParentExpression"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"></structure>
+	</mapping>
+
+	<!-- MeasureExpression -->
+	<mapping name="MeasureExpression"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MeasureExpression"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView">
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView"></structure>
+	</mapping>
+
+	<!-- Measures -->
+	<mapping name="Measure"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Measure">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="column" field="column" usage="optional" />
+		<value style="attribute" name="datatype" field="measureDataType"
+			usage="required" enum-value-method="getMeasureDataType" />
+		<value style="attribute" name="formatString" field="formatString"
+			usage="optional" />
+		<value style="attribute" name="aggregator" field="aggregator"
+			usage="required" enum-value-method="getAggregator" />
+		<value style="attribute" name="formatter" field="formatter"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+		<value style="attribute" name="visible" field="visible" usage="optional" />
+		<structure field="measureExp" usage="optional" />
+		<collection field="memberProperties"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMemberProperty"
+			usage="optional" />
+	</mapping>
+
+	<!-- CalculatedMemberProperty -->
+	<mapping name="CalculatedMemberProperty"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMemberProperty">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+		<value style="attribute" name="expression" field="expression"
+			usage="optional" />
+		<value style="attribute" name="value" field="value" usage="optional" />
+	</mapping>
+
+	<!-- Calculated Member -->
+	<mapping name="CalculatedMember"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMember">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="formatString" field="formatString"
+			usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+		<value style="attribute" name="formula" field="formula" usage="optional" />
+		<value style="attribute" name="dimension" field="dimension"
+			usage="required" />
+		<value style="attribute" name="visible" field="visible" usage="optional" />
+		<structure field="formulaElement" usage="optional" name="Formula">
+			<value style="text" field="cdata" usage="optional" />
+		</structure>
+		<collection field="memberProperties"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMemberProperty"
+			usage="optional" />
+	</mapping>
+
+	<!-- NamedSet -->
+	<mapping name="NamedSet"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NamedSet">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="formula" field="formula" usage="optional" />
+		<structure field="formulaElement" usage="optional" name="Formula">
+			<value style="text" field="cdata" usage="optional" />
+		</structure>
+	</mapping>
+
+
+	<!-- ====================================================== -->
+	<!-- UserDefinedFunction -->
+	<!-- ====================================================== -->
+	<mapping name="UserDefinedFunction"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.UserDefinedFunction">
+		<value style="attribute" name="name" field="name" usage="required" />
+		<value style="attribute" name="className" field="className"
+			usage="required" />
+	</mapping>
+
+
+	<!-- ====================================================== -->
+	<!-- Role Mapping -->
+	<!-- ====================================================== -->
+
+	<mapping name="Role"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Role">
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<collection field="schemaGrants"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SchemaGrant" />
+	</mapping>
+
+	<!-- Basic Grant Mapping -->
+	<mapping class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant"
+		abstract="true">
+		<value style="attribute" name="access" field="accessValue"
+			usage="required" enum-value-method="getAccess" />
+	</mapping>
+	<!-- SchemaGrant Mapping -->
+	<mapping name="SchemaGrant"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SchemaGrant"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant">
+
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant" />
+
+		<collection field="cubeGrants"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeGrant" />
+	</mapping>
+	<!-- Cube Grant -->
+	<mapping name="CubeGrant"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeGrant"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant">
+
+		<value style="attribute" name="cube" field="cubeName" usage="required" />
+
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant" />
+
+		<collection field="dimensionGrants"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.DimensionGrant" />
+		<collection field="hierarchyGrants"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.HierarchyGrant" />
+
+	</mapping>
+
+	<!-- DimensionGrant -->
+	<mapping name="DimensionGrant"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.DimensionGrant"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant">
+		<value style="attribute" name="dimension" field="dimension"
+			usage="required" />
+
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant" />
+	</mapping>
+
+	<!-- HierarchyGrant -->
+	<mapping name="HierarchyGrant"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.HierarchyGrant"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant">
+		<value style="attribute" name="hierarchy" field="hierarchy"
+			usage="required" />
+		<value style="attribute" name="topLevel" field="topLevel" usage="optional" />
+		<value style="attribute" name="bottomLevel" field="bottomLevel"
+			usage="optional" />
+
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant" />
+
+		<collection field="memberGrants"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MemberGrant" />
+	</mapping>
+
+	<!-- MemberGrant -->
+	<mapping name="MemberGrant"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MemberGrant"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant">
+		<value style="attribute" name="hierarchy" field="member" usage="required" />
+		<value style="attribute" name="access" field="accessValue"
+			usage="required" enum-value-method="getAccess" />
+	</mapping>
+
+	<!-- ====================================================== -->
+	<!-- VirtualCubes and its Constituents -->
+	<!-- ====================================================== -->
+
+	<!-- VirtualCube -->
+	<mapping name="VirtualCube"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCube">
+		<value style="attribute" name="enabled" field="enabled" usage="optional" />
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="caption" field="caption" usage="optional" />
+
+		<collection field="dimensions"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeDimension"
+			usage="optional" />
+		<collection field="measures"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeMeasure"
+			usage="optional" />
+		<collection field="calculatedMembers"
+			item-type="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMember" />
+	</mapping>
+
+	<!-- Virtual Cube Dimension -->
+	<mapping name="VirtualCubeDimension"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeDimension"
+		extends="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension">
+		<value style="attribute" name="cubeName" field="cubeName" usage="optional" />
+		<structure
+			map-as="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension" />
+	</mapping>
+
+	<!-- Virtual Cube Measure -->
+	<mapping name="VirtualCubeMeasure"
+		class="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeMeasure">
+		<value style="attribute" name="cubeName" field="cubeName" usage="optional" />
+		<value style="attribute" name="name" field="name" usage="optional" />
+		<value style="attribute" name="visible" field="visible" usage="optional" />
+	</mapping>
+
+</binding>

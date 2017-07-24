@@ -1,0 +1,1813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.13" icons="true" automaticImage="PNG" always-add-relationships="true" generalizations="true" 
+  realizations="true" associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Measure" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Measure.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1961" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggPattern" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggPattern.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="101" x="349" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Property" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Property.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="709" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Relation" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Relation.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="394" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Row" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Row.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="187" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Rows" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Rows.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="190" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NameExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/NameExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="139" x="1113" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.DimensionUsage" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/DimensionUsage.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="140" x="941" y="118"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Hierarchy" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Hierarchy.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="839" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggLevel" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggLevel.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="490" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MemberReaderParameter" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/MemberReaderParameter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="194" x="839" y="685"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.UserDefinedFunction" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/UserDefinedFunction.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="170" x="489" y="280"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MeasureExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/MeasureExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="159" x="2142" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Column" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Column.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1173" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Formula" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Formula.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1547" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.RelationOrJoin" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/RelationOrJoin.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="127" x="434" y="685"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Closure" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Closure.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="847" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.View" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/View.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="935" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Dimension" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Dimension.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="839" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggName" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggName.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="778" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggMeasure" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggMeasure.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="110" x="628" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Cube" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Cube.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1428" y="442"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Parameter" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Parameter.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1142" y="280"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeMeasure" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/VirtualCubeMeasure.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="162" x="879" y="361"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Join" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Join.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="434" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMemberProperty" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/CalculatedMemberProperty.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="209" x="1685" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ColumnDefs" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/ColumnDefs.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="108" x="42" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Schema" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Schema.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1102" y="199"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCube" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/VirtualCube.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="104" x="977" y="280"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="30" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggTable" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggTable.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="633" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="31" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeDimension" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/CubeDimension.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="133" x="1102" y="37"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CaptionExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/CaptionExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="155" x="1480" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.MemberGrant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/MemberGrant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="116" x="71" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Grant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Grant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="160" y="280"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="35" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.VirtualCubeDimension" project="mdxschemabuilder" 
+    
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/VirtualCubeDimension.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="177" x="1102" y="361"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="36" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.KeyExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/KeyExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="127" x="1292" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="37" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Table" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Table.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="633" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="38" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Value" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Value.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="185" y="1090"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.HierarchyGrant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/HierarchyGrant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="127" x="71" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.DimensionGrant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/DimensionGrant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="135" x="238" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Expression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Expression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="101" x="1234" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ParentExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/ParentExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="145" x="1675" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggExclude" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggExclude.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="107" x="323" y="1090"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.NamedSet" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/NamedSet.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1547" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggColumnName" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggColumnName.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="143" x="771" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Role" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Role.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="699" y="280"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggForeignKey" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggForeignKey.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="131" x="916" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CubeGrant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/CubeGrant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="200" y="442"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.Level" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/Level.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="1173" y="685"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="50" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.InlineTable" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/InlineTable.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="100" x="190" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="51" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggFactCount" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggFactCount.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="124" x="1087" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="52" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SchemaGrant" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/SchemaGrant.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="116" x="312" y="361"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="53" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.SQL" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/SQL.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="98" x="975" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="54" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ColumnDef" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/ColumnDef.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="100" x="42" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="55" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.AggIgnoreColumn" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/AggIgnoreColumn.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="149" x="1251" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="56" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.CalculatedMember" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/CalculatedMember.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="151" x="1356" y="523"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="57" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.ExpressionView" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/ExpressionView.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="133" x="1417" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="58" language="java" name="com.inclever.library.olapschemabuilder.core.metadata.mondrian.OrdinalExpression" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/mondrian/OrdinalExpression.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="151" x="1860" y="928"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="59" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.dialet.util.mondrian.DateDimensionUtil" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/dialet/util/mondrian/DateDimensionUtil.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="151" x="1356" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="60" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.ParameterTypeEnum" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/ParameterTypeEnum.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="165" x="1319" y="361"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="61" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.GrantAccessValue" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/GrantAccessValue.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="150" x="71" y="685"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="62" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.PropertyTypeEnum" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/PropertyTypeEnum.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="155" x="438" y="847"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="63" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.DimensionType" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/DimensionType.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="137" x="662" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="64" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.LevelType" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/LevelType.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="137" x="1438" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="65" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.SQLDialet" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/SQLDialet.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="137" x="1440" y="1009"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="66" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.MeasureDataType" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/MeasureDataType.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="147" x="1934" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="67" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.LevelDataType" project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/LevelDataType.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="137" x="532" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="68" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.LevelHideMember" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/LevelHideMember.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="146" x="985" y="766"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <enumeration id="69" language="java" 
+    name="com.inclever.library.olapschemabuilder.core.metadata.enums.mondrian.MeasureAggregator" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/metadata/enums/mondrian/MeasureAggregator.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="41" width="159" x="2121" y="604"/>    
+    <display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </enumeration>  
+  <generalization id="70">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <dependency id="71">    
+    <bendpoint x="827" y="199"/>    
+    <bendpoint x="827" y="280"/>    
+    <bendpoint x="827" y="361"/>    
+    <bendpoint x="827" y="442"/>    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="72">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="73" name="right">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="74" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="75">    
+    <bendpoint x="458" y="442"/>    
+    <bendpoint x="458" y="361"/>    
+    <bendpoint x="458" y="280"/>    
+    <bendpoint x="458" y="199"/>    
+    <bendpoint x="458" y="118"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <association id="76">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="77" name="closure">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="78" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="17" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="79">    
+    <bendpoint x="1071" y="361"/>    
+    <bendpoint x="1071" y="442"/>    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="80" name="calculatedMembers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="81" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="82">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="83" name="accessValue">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="84" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="85">    
+    <end type="SOURCE" refId="18" navigable="false">      
+      <attribute id="86" name="selects">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="87" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="88">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="89" name="namedSets">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="90" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="91">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="41"/>  
+  </dependency>  
+  <dependency id="92">    
+    <bendpoint x="1449" y="928"/>    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="65"/>  
+  </dependency>  
+  <association id="93">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="94" name="relation">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="95" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="96">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="97" name="calculatedMembers">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="98" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="56" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="99">    
+    <end type="SOURCE" refId="51"/>    
+    <end type="TARGET" refId="45"/>  
+  </generalization>  
+  <association id="100">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="101" name="userDefinedFunctions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="102" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="103">    
+    <end type="SOURCE" refId="44" navigable="false">      
+      <attribute id="104" name="formulaElement">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="105" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="106">    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="49"/>  
+  </dependency>  
+  <association id="107">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="108" name="ignoreColumns">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="109" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="55" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="111" name="measures">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="112" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="113">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="114" name="measures">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="115" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="24" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <generalization id="117">    
+    <end type="SOURCE" refId="55"/>    
+    <end type="TARGET" refId="45"/>  
+  </generalization>  
+  <association id="118">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="119" name="formulaElement">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="120" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="15" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="121">    
+    <end type="SOURCE" refId="29" navigable="false">      
+      <attribute id="122" name="dimensions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="123" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="35" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="124">    
+    <end type="SOURCE" refId="42"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <generalization id="125">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <association id="126">    
+    <end type="SOURCE" refId="52" navigable="false">      
+      <attribute id="127" name="cubeGrants">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="128" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="129">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="130" name="levelType">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="131" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="64" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="132">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="133" name="aggTables">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="134" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="135">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="136" name="foreignKeys">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="137" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="47" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="138">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <generalization id="139">    
+    <end type="SOURCE" refId="32"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <association id="140">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="141" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="142" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="63" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="143">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="144" name="measures">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="145" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="146">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="147" name="factCount">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="148" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="51" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="149">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="150" name="roles">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="151" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="46" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="152">    
+    <bendpoint x="1182" y="766"/>    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="153">    
+    <end type="SOURCE" refId="17" navigable="false">      
+      <attribute id="154" name="table">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="155" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="156">    
+    <bendpoint x="1514" y="280"/>    
+    <bendpoint x="1514" y="361"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="157" name="cubes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="158" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="159">    
+    <bendpoint x="2310" y="604"/>    
+    <bendpoint x="2310" y="685"/>    
+    <bendpoint x="2310" y="766"/>    
+    <bendpoint x="2310" y="847"/>    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="160" name="measureExp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="161" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="162">    
+    <bendpoint x="1407" y="766"/>    
+    <bendpoint x="1601" y="847"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="163" name="ordinalExp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="164" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="58" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="165">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="166">    
+    <end type="SOURCE" refId="25" navigable="false">      
+      <attribute id="167" name="left">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="168" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="169">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="170" name="hierarchies">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="171" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="9" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="172">    
+    <bendpoint x="1063" y="523"/>    
+    <bendpoint x="1063" y="604"/>    
+    <bendpoint x="1063" y="685"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="173" name="fact">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="174" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="175">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <association id="176">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="177" name="rows">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="178" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="179">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="180" name="virtualCubes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="181" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="29" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="182">    
+    <end type="SOURCE" refId="53" navigable="false">      
+      <attribute id="183" name="dialect">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="184" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="65" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="185">    
+    <bendpoint x="403" y="685"/>    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <generalization id="186">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <generalization id="187">    
+    <bendpoint x="125" y="442"/>    
+    <bendpoint x="125" y="361"/>    
+    <end type="SOURCE" refId="39"/>    
+    <end type="TARGET" refId="34"/>  
+  </generalization>  
+  <generalization id="188">    
+    <end type="SOURCE" refId="37"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="189">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <association id="190">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="191" name="parameters">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="192" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="193">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="194" name="aggregator">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="195" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="69" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="196">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <dependency id="197">    
+    <bendpoint x="979" y="442"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <generalization id="198">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="30"/>  
+  </generalization>  
+  <dependency id="199">    
+    <bendpoint x="2041" y="685"/>    
+    <bendpoint x="2041" y="766"/>    
+    <bendpoint x="2041" y="847"/>    
+    <bendpoint x="2041" y="928"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="65"/>  
+  </dependency>  
+  <generalization id="200">    
+    <bendpoint x="1270" y="280"/>    
+    <bendpoint x="1270" y="199"/>    
+    <bendpoint x="1270" y="118"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="31"/>  
+  </generalization>  
+  <association id="201">    
+    <bendpoint x="318" y="928"/>    
+    <bendpoint x="318" y="1009"/>    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="202" name="aggExcludes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="203" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="204">    
+    <bendpoint x="1111" y="118"/>    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <association id="205">    
+    <bendpoint x="1203" y="766"/>    
+    <bendpoint x="1301" y="847"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="206" name="keyExp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="207" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="36" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="208">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="209" name="properties">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="210" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="211">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="212" name="memberReaderParameters">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="213" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="214">    
+    <end type="SOURCE" refId="46" navigable="false">      
+      <attribute id="215" name="schemaGrants">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="216" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="52" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="217">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="218" name="levels">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="219" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="49" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="220">    
+    <end type="SOURCE" refId="30" navigable="false">      
+      <attribute id="221" name="levels">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="222" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="223">    
+    <end type="SOURCE" refId="50" navigable="false">      
+      <attribute id="224" name="columnDefs">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="225" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="27" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="226">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="227" name="memberProperties">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="228" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="229">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="230" name="values">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="231" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="232">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="233" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="234" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="60" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="235">    
+    <end type="SOURCE" refId="37" navigable="false">      
+      <attribute id="236" name="filter">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="237" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="238">    
+    <bendpoint x="1535" y="361"/>    
+    <bendpoint x="1556" y="280"/>    
+    <bendpoint x="1556" y="199"/>    
+    <bendpoint x="1556" y="118"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="239" name="dimensions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="240" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="31" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="241">    
+    <end type="SOURCE" refId="57" navigable="false">      
+      <attribute id="242" name="expressions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="243" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="53" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="244">    
+    <bendpoint x="848" y="280"/>    
+    <bendpoint x="848" y="361"/>    
+    <bendpoint x="848" y="442"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="245" name="dimensions">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="246" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="247">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="248">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <association id="249">    
+    <bendpoint x="1535" y="280"/>    
+    <bendpoint x="1556" y="361"/>    
+    <bendpoint x="1556" y="442"/>    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="250" name="namedSets">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="251" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="44" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="252">    
+    <bendpoint x="169" y="442"/>    
+    <bendpoint x="169" y="361"/>    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="34"/>  
+  </generalization>  
+  <dependency id="253">    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="22"/>  
+  </dependency>  
+  <generalization id="254">    
+    <bendpoint x="190" y="361"/>    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="34"/>  
+  </generalization>  
+  <association id="255">    
+    <end type="SOURCE" refId="39" navigable="false">      
+      <attribute id="256" name="memberGrants">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="257" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="258">    
+    <bendpoint x="1605" y="685"/>    
+    <bendpoint x="1605" y="766"/>    
+    <bendpoint x="1386" y="847"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="53"/>  
+  </dependency>  
+  <dependency id="259">    
+    <bendpoint x="944" y="928"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="65"/>  
+  </dependency>  
+  <generalization id="260">    
+    <end type="SOURCE" refId="58"/>    
+    <end type="TARGET" refId="57"/>  
+  </generalization>  
+  <dependency id="261">    
+    <bendpoint x="403" y="442"/>    
+    <bendpoint x="403" y="523"/>    
+    <bendpoint x="403" y="604"/>    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="61"/>  
+  </dependency>  
+  <association id="262">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="263" name="excludes">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="264" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="265">    
+    <end type="SOURCE" refId="27" navigable="false">      
+      <attribute id="266" name="columnDefList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="267" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="54" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="268">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="269" name="hierarchyGrants">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="270" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="39" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="271">    
+    <end type="SOURCE" refId="57"/>    
+    <end type="TARGET" refId="41"/>  
+  </generalization>  
+  <dependency id="272">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <generalization id="273">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="41"/>  
+  </generalization>  
+  <association id="274">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="275" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="276" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="62" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="277">    
+    <end type="SOURCE" refId="25"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="278">    
+    <bendpoint x="1386" y="766"/>    
+    <bendpoint x="1580" y="847"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="279" name="parentExp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="280" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="42" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="281">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="282" name="dimensionGrants">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="283" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="284">    
+    <bendpoint x="40" y="361"/>    
+    <bendpoint x="40" y="442"/>    
+    <bendpoint x="40" y="523"/>    
+    <bendpoint x="40" y="604"/>    
+    <end type="SOURCE" refId="34" navigable="false">      
+      <attribute id="285" name="accessValue">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="286" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="61" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="287">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="288" name="type">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="289" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="67" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="290">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="291" name="measureDataType">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="292" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="66" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="293">    
+    <end type="SOURCE" refId="52"/>    
+    <end type="TARGET" refId="34"/>  
+  </generalization>  
+  <dependency id="294">    
+    <bendpoint x="1111" y="280"/>    
+    <end type="SOURCE" refId="35"/>    
+    <end type="TARGET" refId="28"/>  
+  </dependency>  
+  <generalization id="295">    
+    <end type="SOURCE" refId="50"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <dependency id="296">    
+    <bendpoint x="1084" y="685"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="67"/>  
+  </dependency>  
+  <association id="297">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="298" name="rowList">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="299" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="300">    
+    <end type="SOURCE" refId="49"/>    
+    <end type="TARGET" refId="68"/>  
+  </dependency>  
+  <dependency id="301">    
+    <bendpoint x="1406" y="685"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="64"/>  
+  </dependency>  
+  <dependency id="302">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <dependency id="303">    
+    <bendpoint x="1365" y="685"/>    
+    <bendpoint x="1365" y="766"/>    
+    <bendpoint x="1365" y="847"/>    
+    <end type="SOURCE" refId="59"/>    
+    <end type="TARGET" refId="36"/>  
+  </dependency>  
+  <association id="304">    
+    <bendpoint x="1161" y="766"/>    
+    <bendpoint x="1142" y="847"/>    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="305" name="nameExp">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="306" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="307">    
+    <end type="SOURCE" refId="56" navigable="false">      
+      <attribute id="308" name="memberProperties">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="309" minimum="0" maximum="2147483647">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="26" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="false" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="false" package="false" protected="false" private="false" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

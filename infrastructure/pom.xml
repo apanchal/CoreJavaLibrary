@@ -14,10 +14,17 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<sonar.language>java</sonar.language>
 		<sonar.host.url>http://localhost:9000</sonar.host.url>
-
+		<inclever.version>2.1-SNAPSHOT</inclever.version>
 		<spring.version>4.2.4.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>com.inclever.library</groupId>
+			<artifactId>Common-Utility</artifactId>
+			<version>${inclever.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>

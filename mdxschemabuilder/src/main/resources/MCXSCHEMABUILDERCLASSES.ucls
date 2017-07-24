@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.1.13" icons="true" automaticImage="PNG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="true" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="com.inclever.library.olapschemabuilder.core.api.BaseOlapBuilder" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/api/BaseOlapBuilder.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="294" width="319" x="174" y="461"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.inclever.library.olapschemabuilder.core.api.JibxOlapBuilder" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/api/JibxOlapBuilder.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="227" x="395" y="795"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.inclever.library.olapschemabuilder.core.api.OlapSchemaDirector" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/core/api/OlapSchemaDirector.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="384" width="339" x="554" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="false"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.inclever.library.olapschemabuilder.exception.OlapSchemaBuilderException" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/exception/OlapSchemaBuilderException.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="168" width="500" x="416" y="931"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" 
+    name="com.inclever.library.olapschemabuilder.exception.OlapSchemaBuilderExceptionHandler" project="mdxschemabuilder" 
+    
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/exception/OlapSchemaBuilderExceptionHandler.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="132" width="341" x="554" y="461"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" 
+    name="com.inclever.library.olapschemabuilder.exception.i18n.OlapSchemaBuilderExceptionResource" 
+    project="mdxschemabuilder" 
+    file="/mdxschemabuilder/src/main/java/com/inclever/library/olapschemabuilder/exception/i18n/OlapSchemaBuilderExceptionResource.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="96" width="293" x="41" y="795"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <dependency id="7">    
+    <bendpoint x="523" y="461"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="8">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <generalization id="9">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <dependency id="10">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="11">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <association id="12">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="13" name="baseOlapBuilder"/>      
+      <multiplicity id="14" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="15">    
+    <bendpoint x="364" y="795"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="16">    
+    <bendpoint x="652" y="795"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <dependency id="17">    
+    <bendpoint x="925" y="461"/>    
+    <bendpoint x="925" y="795"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="4"/>  
+  </dependency>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="false" package="false" protected="false" private="false" static="true"/>    
+    <operations public="false" package="false" protected="false" private="false" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
